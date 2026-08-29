@@ -1,5 +1,61 @@
 @extends('layouts.app')
 
+@section('title', $room->name . ' | Kost Putri Ibu Idah Ciamis')
+@section('meta_description', 'Detail spesifikasi ' . $room->name . ' Kost Putri Ibu Idah Ciamis. ' . $room->description . ' Fasilitas kasur, Wi-Fi gratis, listrik dan air termasuk sewa.')
+@section('meta_keywords', 'sewa ' . strtolower($room->name) . ' ciamis, kost putri ciamis, kamar kos mahasiswi ciamis, kosan putri ciamis')
+@section('og_image', $room->primary_image_url ?? 'https://kosanputri.kall.my.id/images/rooms/kamar-mandi-dalam.svg')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@graph' => [
+        [
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => [
+                [
+                    '@type' => 'ListItem',
+                    'position' => 1,
+                    'name' => 'Beranda',
+                    'item' => 'https://kosanputri.kall.my.id/',
+                ],
+                [
+                    '@type' => 'ListItem',
+                    'position' => 2,
+                    'name' => 'Pilihan Kamar',
+                    'item' => 'https://kosanputri.kall.my.id/kamar',
+                ],
+                [
+                    '@type' => 'ListItem',
+                    'position' => 3,
+                    'name' => $room->name,
+                    'item' => 'https://kosanputri.kall.my.id/kamar/' . $room->slug,
+                ],
+            ],
+        ],
+        [
+            '@type' => 'HotelRoom',
+            'name' => $room->name,
+            'description' => $room->description,
+            'url' => 'https://kosanputri.kall.my.id/kamar/' . $room->slug,
+            'image' => $room->primary_image_url ?? 'https://kosanputri.kall.my.id/images/rooms/kamar-mandi-dalam.svg',
+            'occupancy' => [
+                '@type' => 'QuantitativeValue',
+                'maxValue' => 2,
+                'minValue' => 1,
+            ],
+            'amenityFeature' => [
+                ['@type' => 'LocationFeatureSpecification', 'name' => 'Kasur', 'value' => true],
+                ['@type' => 'LocationFeatureSpecification', 'name' => 'Wi-Fi', 'value' => true],
+                ['@type' => 'LocationFeatureSpecification', 'name' => 'Listrik Termasuk', 'value' => true],
+                ['@type' => 'LocationFeatureSpecification', 'name' => 'Air Bersih Termasuk', 'value' => true],
+            ],
+        ],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
 <!-- Breadcrumbs -->
 <div class="bg-white border-b-2 border-brutal-black py-3 text-xs font-bold text-brutal-darkgray">

@@ -1,5 +1,46 @@
 @extends('layouts.app')
 
+@section('title', 'Pilihan Tipe Kamar | Kost Putri Ibu Idah Ciamis')
+@section('meta_description', 'Lihat pilihan tipe kamar di Kost Putri Ibu Idah Ciamis: Kamar Mandi Dalam dan Kamar Mandi Luar. Fasilitas kasur, Wi-Fi, listrik dan air termasuk biaya sewa.')
+@section('meta_keywords', 'pilihan kamar kost putri ciamis, sewa kamar kos putri, kost kamar mandi dalam ciamis, kamar kost ciamis murah')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@graph' => [
+        [
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => [
+                [
+                    '@type' => 'ListItem',
+                    'position' => 1,
+                    'name' => 'Beranda',
+                    'item' => 'https://kosanputri.kall.my.id/',
+                ],
+                [
+                    '@type' => 'ListItem',
+                    'position' => 2,
+                    'name' => 'Pilihan Kamar',
+                    'item' => 'https://kosanputri.kall.my.id/kamar',
+                ],
+            ],
+        ],
+        [
+            '@type' => 'ItemList',
+            'name' => 'Daftar Tipe Kamar Kost Putri Ibu Idah',
+            'itemListElement' => $rooms->values()->map(fn($r, $idx) => [
+                '@type' => 'ListItem',
+                'position' => $idx + 1,
+                'name' => $r->name,
+                'url' => 'https://kosanputri.kall.my.id/kamar/' . $r->slug,
+            ])->all(),
+        ],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
 <!-- Header Banner -->
 <section class="bg-brutal-black text-white py-14 sm:py-20 border-b-3 border-brutal-black">

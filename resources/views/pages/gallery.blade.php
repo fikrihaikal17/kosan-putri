@@ -1,5 +1,32 @@
 @extends('layouts.app')
 
+@section('title', 'Galeri Foto Properti | Kost Putri Ibu Idah Ciamis')
+@section('meta_description', 'Galeri foto terverifikasi Kost Putri Ibu Idah Ciamis: foto kamar tidur, kamar mandi bersih, dapur sharing, area jemur, dan garasi motor.')
+@section('meta_keywords', 'foto kost putri ciamis, galeri kost ibu idah, foto kamar kos ciamis, gambar kost khusus putri')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    'itemListElement' => [
+        [
+            '@type' => 'ListItem',
+            'position' => 1,
+            'name' => 'Beranda',
+            'item' => 'https://kosanputri.kall.my.id/',
+        ],
+        [
+            '@type' => 'ListItem',
+            'position' => 2,
+            'name' => 'Galeri',
+            'item' => 'https://kosanputri.kall.my.id/galeri',
+        ],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
 <!-- Header Banner -->
 <section class="bg-brutal-black text-white py-14 sm:py-20 border-b-3 border-brutal-black">

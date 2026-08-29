@@ -1,0 +1,22 @@
+{
+  "name": "Kost Putri Ibu Idah",
+  "short_name": "Kost Ibu Idah",
+  "description": "Kost khusus putri nyaman, aman, dan praktis di Ciamis. Fasilitas kasur, Wi-Fi gratis, listrik dan air termasuk biaya sewa.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF7EE",
+  "theme_color": "#FF5E8A",
+  "icons": [
+    {
+      "src": "/logo/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

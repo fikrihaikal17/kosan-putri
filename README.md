@@ -25,6 +25,7 @@ Website profil resmi dan sistem manajemen konten (CMS) berbasis web untuk **Kost
 - [Struktur Rute & Endpoint](#struktur-rute--endpoint)
 - [Tumpukan Teknologi (Tech Stack)](#tumpukan-teknologi-tech-stack)
 - [Panduan Instalasi & Konfigurasi Lingkungan](#panduan-instalasi--konfigurasi-lingkungan)
+- [Optimasi Mesin Pencari (SEO) & Google Indexing](#optimasi-mesin-pencari-seo--google-indexing)
 - [Kredensial Default Panel Admin](#kredensial-default-panel-admin)
 - [Standarisasi Pengujian Otomatis](#standarisasi-pengujian-otomatis)
 - [Informasi Operasional & Lokasi Resmi](#informasi-operasional--lokasi-resmi)
@@ -254,8 +255,36 @@ Pastikan perangkat kerja telah terpasang:
    php artisan serve
    ```
    Aplikasi dapat diakses melalui peramban:
-   - Antarmuka Publik: `http://127.0.0.1:8000`
+   - Antarmuka Publik: `http://127.0.0.1:8000` (atau `https://kosanputri.kall.my.id` pada server produksi)
    - Panel Admin: `http://127.0.0.1:8000/admin`
+
+---
+
+## Optimasi Mesin Pencari (SEO) & Google Indexing
+
+Sistem ini telah dikonfigurasi secara mendalam untuk meraih visibilitas maksimal di mesin pencari Google dengan domain resmi **`https://kosanputri.kall.my.id`**:
+
+### 1. Peta Situs Dinamis & Statis (`sitemap.xml`)
+- **URL Sitemap**: [`https://kosanputri.kall.my.id/sitemap.xml`](https://kosanputri.kall.my.id/sitemap.xml)
+- Menyusun indeks URL seluruh halaman publik beserta seluruh tipe kamar aktif (`/kamar/{slug}`) secara dinamis dengan bobot prioritas (`priority: 1.0` untuk beranda, `0.9` untuk kamar dan lokasi, `0.8` untuk galeri, fasilitas, dan FAQ).
+
+### 2. Pengaturan Perayap (`robots.txt`)
+- **URL Robots**: [`https://kosanputri.kall.my.id/robots.txt`](https://kosanputri.kall.my.id/robots.txt)
+- Mengizinkan seluruh bot pencarian (Googlebot, Googlebot-Image, Bingbot) untuk mengindeks halaman publik, gambar galeri, dan logo, serta membatasi akses pada area panel manajemen (`/admin*`, `/livewire*`).
+
+### 3. Data Terstruktur Kaya (Schema.org JSON-LD)
+- **`LodgingBusiness` & `LocalBusiness`**: Entitas bisnis penginapan lengkap dengan nama resmi, nomor telepon internasional (`+6281339259179`), rentang harga, jam operasional gerbang malam, koordinat lintang/bujur presisi (`-7.3226066, 108.3780388`), alamat lengkap Ciamis, dan 11 fitur fasilitas terverifikasi.
+- **`FAQPage` Schema**: Menginjeksi 10 daftar tanya jawab resmi langsung ke format yang didukung cuplikan kaya (*Rich Snippets*) Google Search.
+- **`BreadcrumbList` Schema**: Struktur remah roti (*breadcrumbs*) di setiap halaman internal (`/kamar`, `/kamar/{slug}`, `/fasilitas`, `/galeri`, `/lokasi`, `/faq`).
+- **`HotelRoom` Schema**: Spesifikasi kamar tidur dan fasilitas inklusif di setiap halaman detail kamar.
+- **`Place` Schema**: Titik lokasi dan peta geospasial pada halaman lokasi.
+
+### 4. Tag Meta Geografis & SEO Lokal (Ciamis, Jawa Barat)
+- Dilengkapi tag `geo.region` (`ID-JB`), `geo.placename` (`Ciamis`), `geo.position` (`-7.3226066;108.3780388`), serta `ICBM` untuk mempercepat pemetaan di Google Search Lokal dan Google Maps.
+
+### 5. Media Sosial & PWA (Open Graph & Twitter Cards)
+- Kartu pratinjau resolusi tinggi (1200x630px) untuk WhatsApp, Facebook, dan Twitter/X.
+- Dukungan PWA Web App Manifest (`/site.webmanifest`) dengan ikon maskable dan tema `#FF5E8A`.
 
 ---
 

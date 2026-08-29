@@ -100,6 +100,8 @@ class BusinessSetting extends Model
                 'google_place_id' => '0x8b96d290aad1c3ab:0x25e81025801d51c9',
                 'google_maps_embed_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126632.90504739172!2d108.27803875896687!3d-7.322606637159948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8b96d290aad1c3ab%3A0x25e81025801d51c9!2sKosan%20Putri%20Ibu%20Idah!5e0!3m2!1sid!2sid!4v1787967398353!5m2!1sid!2sid',
                 'gate_closing_time' => '22.00 WIB',
+                'seo_title' => 'Kost Putri Ibu Idah Ciamis | Kos Khusus Putri Nyaman & Praktis',
+                'seo_description' => 'Kost Putri Ibu Idah adalah kos khusus mahasiswi dan karyawati di Ciamis (Dewasari, Cijeungjing). Fasilitas lengkap: kasur, Wi-Fi gratis, listrik & air termasuk sewa, pilihan kamar mandi dalam/luar, dapur, dan garasi motor.',
             ]
         );
     }

@@ -1,5 +1,54 @@
 @extends('layouts.app')
 
+@section('title', 'Lokasi & Petunjuk Arah | Kost Putri Ibu Idah Ciamis')
+@section('meta_description', 'Lokasi resmi Kost Putri Ibu Idah di Jalan K. H. Zakaria No. 82, Ds. Dewasari, Kec. Cijeungjing, Kab. Ciamis. Peta Google Maps akurat dan petunjuk arah survey.')
+@section('meta_keywords', 'lokasi kost putri ciamis, peta kost ibu idah, alamat kosan putri ciamis, kost dewasari cijeungjing ciamis, petunjuk arah kost')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@graph' => [
+        [
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => [
+                [
+                    '@type' => 'ListItem',
+                    'position' => 1,
+                    'name' => 'Beranda',
+                    'item' => 'https://kosanputri.kall.my.id/',
+                ],
+                [
+                    '@type' => 'ListItem',
+                    'position' => 2,
+                    'name' => 'Lokasi & Peta',
+                    'item' => 'https://kosanputri.kall.my.id/lokasi',
+                ],
+            ],
+        ],
+        [
+            '@type' => 'Place',
+            'name' => 'Kost Putri Ibu Idah',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => 'Jalan K. H. Zakaria No. 82, RT. 3/RW. 14',
+                'addressLocality' => 'Dewasari, Cijeungjing',
+                'addressRegion' => 'Kabupaten Ciamis, Jawa Barat',
+                'postalCode' => '46271',
+                'addressCountry' => 'ID',
+            ],
+            'geo' => [
+                '@type' => 'GeoCoordinates',
+                'latitude' => -7.3226066,
+                'longitude' => 108.3780388,
+            ],
+            'hasMap' => 'https://maps.app.goo.gl/SjebDzqDyygXVm3V6',
+        ],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
 <!-- Header Banner -->
 <section class="bg-brutal-black text-white py-14 sm:py-20 border-b-3 border-brutal-black">

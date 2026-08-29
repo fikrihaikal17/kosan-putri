@@ -211,4 +211,46 @@ class KostWebsiteTest extends TestCase
         $this->assertStringContainsString('kamar mandi yang tersedia', mb_strtolower($response->json('answer')));
         $this->assertStringContainsString('area jemur', mb_strtolower($response->json('answer')));
     }
+
+    /**
+     * Test dynamic sitemap.xml returns valid XML and includes kosanputri.kall.my.id.
+     */
+    public function test_sitemap_xml_returns_valid_content_and_urls(): void
+    {
+        $response = $this->get('/sitemap.xml');
+
+        $response->assertStatus(200);
+        $response->assertHeader('Content-Type', 'application/xml');
+        $response->assertSee('https://kosanputri.kall.my.id/', false);
+        $response->assertSee('https://kosanputri.kall.my.id/kamar', false);
+        $response->assertSee('https://kosanputri.kall.my.id/fasilitas', false);
+        $response->assertSee('https://kosanputri.kall.my.id/lokasi', false);
+    }
+
+    /**
+     * Test dynamic robots.txt references sitemap and allows search engines.
+     */
+    public function test_robots_txt_returns_valid_directives(): void
+    {
+        $response = $this->get('/robots.txt');
+
+        $response->assertStatus(200);
+        $response->assertHeader('Content-Type', 'text/plain; charset=UTF-8');
+        $response->assertSee('User-agent: *');
+        $response->assertSee('Sitemap: https://kosanputri.kall.my.id/sitemap.xml');
+    }
+
+    /**
+     * Test homepage includes rich Schema.org structured data and canonical url.
+     */
+    public function test_homepage_includes_rich_seo_meta_and_schema(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+        $response->assertSee('https://kosanputri.kall.my.id', false);
+        $response->assertSee('LodgingBusiness', false);
+        $response->assertSee('FAQPage', false);
+        $response->assertSee('geo.region', false);
+    }
 }

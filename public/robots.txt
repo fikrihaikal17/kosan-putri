@@ -1,4 +1,19 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /livewire/*
 
-Sitemap: http://localhost:8000/sitemap.xml
+User-agent: Googlebot
+Allow: /
+Allow: /images/
+Allow: /logo/
+Disallow: /admin
+Disallow: /admin/*
+
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /logo/
+Allow: /
+
+Sitemap: https://kosanputri.kall.my.id/sitemap.xml

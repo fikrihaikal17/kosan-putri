@@ -1,5 +1,26 @@
 @extends('layouts.app')
 
+@section('title', 'Kost Putri Ibu Idah Ciamis | Kos Khusus Putri Nyaman & Praktis')
+@section('meta_description', 'Kost Putri Ibu Idah adalah kos khusus mahasiswi dan karyawati di Ciamis (Dewasari, Cijeungjing). Fasilitas lengkap: kasur, Wi-Fi gratis, listrik & air termasuk sewa, pilihan kamar mandi dalam/luar, dapur, dan garasi motor aman.')
+@section('meta_keywords', 'kost putri ciamis, kosan putri ibu idah, kos putri ciamis, kost mahasiswi ciamis, sewa kos putri ciamis, kos putri dewasari cijeungjing, kost kamar mandi dalam ciamis')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => $faq->map(fn($item) => [
+        '@type' => 'Question',
+        'name' => $item->question,
+        'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => $item->answer,
+        ],
+    ])->values()->all(),
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
 
 <!-- ==========================================

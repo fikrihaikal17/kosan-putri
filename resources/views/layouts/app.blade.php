@@ -5,27 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @php
+        $siteDomain = 'https://kosanputri.kall.my.id';
+        $currentPath = request()->getPathInfo() === '/' ? '' : request()->getPathInfo();
+        $defaultCanonical = $siteDomain . $currentPath;
+        $pageTitle = trim($__env->yieldContent('title')) ?: ($business['seo_title'] ?? 'Kost Putri Ibu Idah Ciamis | Kos Khusus Putri Nyaman & Praktis');
+        $pageDesc = trim($__env->yieldContent('meta_description')) ?: ($business['seo_description'] ?? 'Kost Putri Ibu Idah adalah kos khusus mahasiswi dan karyawati di Ciamis (Dewasari, Cijeungjing). Fasilitas lengkap: kasur, Wi-Fi gratis, listrik & air termasuk sewa, pilihan kamar mandi dalam/luar, dapur, dan garasi motor aman.');
+        $pageKeywords = trim($__env->yieldContent('meta_keywords')) ?: 'kost putri ciamis, kosan putri ibu idah, kost putri ciamis murah, kos mahasiswi ciamis, sewa kos putri cijeungjing dewasari, kost kamar mandi dalam ciamis, kosan putri ciamis';
+        $pageOgImage = trim($__env->yieldContent('og_image')) ?: $siteDomain . '/images/gallery/eksterior.svg';
+        $pageType = trim($__env->yieldContent('og_type')) ?: 'website';
+    @endphp
+
     <!-- Primary SEO Meta Tags -->
-    <title>{{ $business['seo_title'] ?? 'Kost Putri Ibu Idah | Kos Putri Nyaman & Praktis' }}</title>
-    <meta name="title" content="{{ $business['seo_title'] ?? 'Kost Putri Ibu Idah | Kos Putri Nyaman & Praktis' }}">
-    <meta name="description" content="{{ $business['seo_description'] ?? 'Kost Putri Ibu Idah adalah tempat tinggal nyaman dan praktis khusus putri. Dilengkapi kasur, Wi-Fi, listrik & air sudah termasuk, serta pilihan kamar mandi dalam maupun sharing.' }}">
-    <meta name="keywords" content="kost putri ibu idah, kos putri, kost khusus putri, kos mahasiswi, kos karyawati, sewa kos putri">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{ url()->current() }}">
+    <title>{{ $pageTitle }}</title>
+    <meta name="title" content="{{ $pageTitle }}">
+    <meta name="description" content="{{ $pageDesc }}">
+    <meta name="keywords" content="{{ $pageKeywords }}">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="@yield('canonical_url', $defaultCanonical)">
+
+    <!-- Geographic / Local SEO Meta Tags for Google Ciamis -->
+    <meta name="geo.region" content="ID-JB">
+    <meta name="geo.placename" content="Ciamis">
+    <meta name="geo.position" content="-7.3226066;108.3780388">
+    <meta name="ICBM" content="-7.3226066, 108.3780388">
+    <meta name="city" content="Ciamis">
+    <meta name="state" content="Jawa Barat">
+    <meta name="country" content="Indonesia">
+    <meta name="language" content="Indonesian">
+    <meta name="author" content="Kost Putri Ibu Idah">
+    <meta name="copyright" content="Kost Putri Ibu Idah">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="{{ $business['seo_title'] ?? 'Kost Putri Ibu Idah | Kos Putri Nyaman & Praktis' }}">
-    <meta property="og:description" content="{{ $business['seo_description'] ?? 'Kos khusus putri dengan fasilitas praktis: kasur, Wi-Fi, listrik dan air termasuk.' }}">
-    <meta property="og:image" content="{{ asset('logo/logo.svg') }}">
+    <meta property="og:type" content="{{ $pageType }}">
+    <meta property="og:site_name" content="Kost Putri Ibu Idah">
+    <meta property="og:url" content="@yield('canonical_url', $defaultCanonical)">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDesc }}">
+    <meta property="og:image" content="{{ $pageOgImage }}">
+    <meta property="og:image:alt" content="Kost Putri Ibu Idah Ciamis">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="id_ID">
 
-    <!-- Twitter -->
+    <!-- Twitter Cards -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="{{ $business['seo_title'] ?? 'Kost Putri Ibu Idah | Kos Putri Nyaman & Praktis' }}">
-    <meta property="twitter:description" content="{{ $business['seo_description'] ?? 'Kos khusus putri dengan fasilitas praktis: kasur, Wi-Fi, listrik dan air termasuk.' }}">
-    <meta property="twitter:image" content="{{ asset('logo/logo.svg') }}">
+    <meta property="twitter:domain" content="kosanputri.kall.my.id">
+    <meta property="twitter:url" content="@yield('canonical_url', $defaultCanonical)">
+    <meta property="twitter:title" content="{{ $pageTitle }}">
+    <meta property="twitter:description" content="{{ $pageDesc }}">
+    <meta property="twitter:image" content="{{ $pageOgImage }}">
+    <meta property="twitter:image:alt" content="Kost Putri Ibu Idah Ciamis">
+
+    <!-- Favicon & Mobile Web App Manifest -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/logo/logo.svg">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#FF5E8A">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Kost Ibu Idah">
 
     <!-- Fonts: Plus Jakarta Sans for Bold Neo-Brutalist Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,32 +75,87 @@
     <!-- Styles and Scripts via Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Schema.org Structured Data for Local Lodging Business -->
+    <!-- Comprehensive Schema.org Structured Data (LodgingBusiness & LocalBusiness) -->
     <script type="application/ld+json">
-    {
-      "@@context": "https://schema.org",
-      "@@type": "LodgingBusiness",
-      "name": "{{ $business['name'] ?? 'Kost Putri Ibu Idah' }}",
-      "description": "{{ $business['description'] ?? 'Tempat tinggal nyaman untuk putri dengan fasilitas kasur, Wi-Fi, listrik dan air termasuk, serta pilihan kamar mandi dalam maupun sharing.' }}",
-      "url": "{{ url('/') }}",
-      "logo": "{{ asset('logo/logo.svg') }}",
-      "image": "{{ asset('images/gallery/eksterior.svg') }}",
-      "telephone": "{{ $contact['whatsapp_number'] ?? '' }}",
-      "address": {
-        "@@type": "PostalAddress",
-        "streetAddress": "{{ $contact['address'] ?? '[ALAMAT LENGKAP]' }}",
-        "addressCountry": "ID"
-      },
-      "amenityFeature": [
-        { "@@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-        { "@@type": "LocationFeatureSpecification", "name": "Listrik Termasuk", "value": true },
-        { "@@type": "LocationFeatureSpecification", "name": "Air Termasuk", "value": true },
-        { "@@type": "LocationFeatureSpecification", "name": "Kasur", "value": true },
-        { "@@type": "LocationFeatureSpecification", "name": "Dapur Bersama", "value": true },
-        { "@@type": "LocationFeatureSpecification", "name": "Garasi Motor", "value": true }
-      ]
-    }
+    {!! json_encode([
+      '@context' => 'https://schema.org',
+      '@graph' => [
+        [
+          '@type' => 'LodgingBusiness',
+          '@id' => $siteDomain . '/#lodging',
+          'name' => 'Kost Putri Ibu Idah',
+          'alternateName' => [
+            'Kosan Putri Ibu Idah',
+            'Kost Putri Ibu Idah Ciamis',
+            'Kos Khusus Putri Dewasari Cijeungjing',
+          ],
+          'description' => 'Kost khusus putri nyaman, aman, dan praktis di Ciamis. Dilengkapi kasur, Wi-Fi gratis, listrik dan air termasuk dalam biaya sewa, pilihan kamar mandi dalam maupun sharing, dapur bersama, garasi motor aman, dan sirkulasi udara segar.',
+          'url' => $siteDomain,
+          'logo' => $siteDomain . '/logo/logo.svg',
+          'image' => [
+            $siteDomain . '/images/gallery/eksterior.svg',
+            $siteDomain . '/images/gallery/kamar-1.svg',
+            $siteDomain . '/images/gallery/kamar-mandi.svg',
+            $siteDomain . '/images/gallery/dapur.svg',
+            $siteDomain . '/images/gallery/garasi.svg',
+          ],
+          'telephone' => '+6281339259179',
+          'priceRange' => 'IDR 500.000 - 1.000.000',
+          'currenciesAccepted' => 'IDR',
+          'paymentAccepted' => 'Cash, Transfer Bank',
+          'hasMap' => 'https://maps.app.goo.gl/SjebDzqDyygXVm3V6',
+          'address' => [
+            '@type' => 'PostalAddress',
+            'streetAddress' => 'Jalan K. H. Zakaria No. 82, RT. 3/RW. 14',
+            'addressLocality' => 'Dewasari, Cijeungjing',
+            'addressRegion' => 'Kabupaten Ciamis, Jawa Barat',
+            'postalCode' => '46271',
+            'addressCountry' => 'ID',
+          ],
+          'geo' => [
+            '@type' => 'GeoCoordinates',
+            'latitude' => -7.3226066,
+            'longitude' => 108.3780388,
+          ],
+          'openingHoursSpecification' => [
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            'opens' => '06:00',
+            'closes' => '22:00',
+          ],
+          'amenityFeature' => [
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Kasur Siap Pakai', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Wi-Fi Berkecepatan Tinggi', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Listrik Termasuk Biaya Sewa', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Air Bersih Termasuk Biaya Sewa', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Pilihan Kamar Mandi Dalam', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Kamar Mandi Luar Bersih', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Dapur Bersama', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Area Jemur Pakaian', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Garasi Parkir Motor', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Sirkulasi Udara & Jendela', 'value' => true],
+            ['@type' => 'LocationFeatureSpecification', 'name' => 'Gerbang Keamanan Malam', 'value' => true],
+          ],
+          'audience' => [
+            '@type' => 'Audience',
+            'audienceType' => 'Mahasiswi dan Karyawati Putri',
+          ],
+        ],
+        [
+          '@type' => 'WebSite',
+          '@id' => $siteDomain . '/#website',
+          'url' => $siteDomain,
+          'name' => 'Kost Putri Ibu Idah',
+          'description' => 'Website Resmi Kost Putri Ibu Idah Ciamis',
+          'publisher' => [
+            '@id' => $siteDomain . '/#lodging',
+          ],
+          'inLanguage' => 'id-ID',
+        ],
+      ],
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
     </script>
+    @stack('schema')
 </head>
 <body class="bg-brutal-warm text-brutal-black antialiased min-h-screen flex flex-col selection:bg-brutal-pink selection:text-brutal-black font-sans">
 

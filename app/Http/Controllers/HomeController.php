@@ -131,4 +131,70 @@ class HomeController extends Controller
 
         return view('pages.faq', compact('business', 'contact', 'faqs', 'defaultWaUrl'));
     }
+
+    /**
+     * Dynamic sitemap XML for search engine indexers.
+     */
+    public function sitemap(): \Illuminate\Http\Response
+    {
+        $baseUrl = 'https://kosanputri.kall.my.id';
+        $rooms = $this->kostData->getActiveRooms();
+
+        $urls = [
+            ['loc' => $baseUrl.'/', 'priority' => '1.0', 'changefreq' => 'weekly'],
+            ['loc' => $baseUrl.'/kamar', 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ];
+
+        foreach ($rooms as $room) {
+            $urls[] = [
+                'loc' => $baseUrl.'/kamar/'.$room->slug,
+                'priority' => '0.8',
+                'changefreq' => 'monthly',
+            ];
+        }
+
+        $urls[] = ['loc' => $baseUrl.'/fasilitas', 'priority' => '0.8', 'changefreq' => 'monthly'];
+        $urls[] = ['loc' => $baseUrl.'/lokasi', 'priority' => '0.9', 'changefreq' => 'monthly'];
+        $urls[] = ['loc' => $baseUrl.'/galeri', 'priority' => '0.8', 'changefreq' => 'weekly'];
+        $urls[] = ['loc' => $baseUrl.'/faq', 'priority' => '0.8', 'changefreq' => 'monthly'];
+
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        foreach ($urls as $u) {
+            $xml .= '<url>';
+            $xml .= '<loc>'.htmlspecialchars($u['loc']).'</loc>';
+            $xml .= '<lastmod>'.date('Y-m-d').'</lastmod>';
+            $xml .= '<changefreq>'.$u['changefreq'].'</changefreq>';
+            $xml .= '<priority>'.$u['priority'].'</priority>';
+            $xml .= '</url>';
+        }
+        $xml .= '</urlset>';
+
+        return response($xml, 200, ['Content-Type' => 'application/xml']);
+    }
+
+    /**
+     * Dynamic robots.txt.
+     */
+    public function robots(): \Illuminate\Http\Response
+    {
+        $txt = "User-agent: *\n";
+        $txt .= "Allow: /\n";
+        $txt .= "Disallow: /admin\n";
+        $txt .= "Disallow: /admin/*\n";
+        $txt .= "Disallow: /livewire/*\n\n";
+        $txt .= "User-agent: Googlebot\n";
+        $txt .= "Allow: /\n";
+        $txt .= "Allow: /images/\n";
+        $txt .= "Allow: /logo/\n";
+        $txt .= "Disallow: /admin\n";
+        $txt .= "Disallow: /admin/*\n\n";
+        $txt .= "User-agent: Googlebot-Image\n";
+        $txt .= "Allow: /images/\n";
+        $txt .= "Allow: /logo/\n";
+        $txt .= "Allow: /\n\n";
+        $txt .= "Sitemap: https://kosanputri.kall.my.id/sitemap.xml\n";
+
+        return response($txt, 200, ['Content-Type' => 'text/plain']);
+    }
 }

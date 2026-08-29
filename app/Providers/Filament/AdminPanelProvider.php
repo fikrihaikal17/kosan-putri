@@ -32,6 +32,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->passwordReset()
+            ->profile(\App\Filament\Pages\Auth\EditProfile::class, isSimple: false)
             ->brandName('Kost Putri Ibu Idah')
             ->brandLogo(fn (): View => view('filament.brand'))
             ->brandLogoHeight('2.5rem')

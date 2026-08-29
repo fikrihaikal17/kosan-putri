@@ -298,7 +298,7 @@ Sistem ini telah dikonfigurasi secara mendalam untuk meraih visibilitas maksimal
 
 ---
 
-## Kredensial Default Panel Admin
+## Kredensial Default & Pengaturan Akun Admin
 
 Tersedia dua akun superadmin terverifikasi yang siap digunakan setelah proses seeding basis data:
 
@@ -309,13 +309,18 @@ Tersedia dua akun superadmin terverifikasi yang siap digunakan setelah proses se
   - Email: `admin@kostputriibuidah.com`
   - Password: `password`
 
-*Kredensial dapat diperbarui sewaktu-waktu melalui menu pengaturan akun di panel admin.*
+### Fitur Pengelolaan Akun & Keamanan (Self-Service Profile)
+Setelah masuk ke panel admin, superadmin dapat mengelola kredensial akun melalui menu profil pojok kanan atas atau rute [`/admin/profile`](http://127.0.0.1:8000/admin/profile):
+1. **Ubah Nama Lengkap**: Memperbarui nama tampilan akun superadmin.
+2. **Ubah Alamat Email Login**: Memperbarui email akses login dengan validasi format dan pengecekan keunikan basis data.
+3. **Ubah Kata Sandi (*Password Change*)**: Mengganti kata sandi dengan verifikasi kata sandi saat ini (*current password verification*) serta konfirmasi kata sandi baru.
+4. **Fitur Lupa Kata Sandi (*Password Reset*)**: Tersedia tautan pemulihan kata sandi langsung pada halaman masuk admin di [`/admin/password-reset/request`](http://127.0.0.1:8000/admin/password-reset/request).
 
 ---
 
 ## Standarisasi Pengujian Otomatis
 
-Proyek ini dilengkapi pengujian otomatis menyeluruh untuk memastikan keandalan rute publik, integritas data seeder, keamanan panel admin, fungsionalitas asisten Tanya Kost, pembatasan guardrail, dan akurasi informasi lokasi.
+Proyek ini dilengkapi pengujian otomatis menyeluruh untuk memastikan keandalan rute publik, integritas data seeder, keamanan panel admin, pengelolaan profil & perubahan password admin, fungsionalitas asisten Tanya Kost, pembatasan guardrail, dan akurasi informasi lokasi.
 
 Jalankan pengujian dengan perintah:
 
@@ -323,7 +328,7 @@ Jalankan pengujian dengan perintah:
 php artisan test
 ```
 
-Seluruh 16 pengujian fitur (*feature tests*) dan unit dengan 60 *assertions* telah terverifikasi lulus secara penuh (100% Passed).
+Seluruh 28 pengujian fitur (*feature tests*) dan unit dengan 118 *assertions* telah terverifikasi lulus secara penuh (100% Passed).
 
 ---
 

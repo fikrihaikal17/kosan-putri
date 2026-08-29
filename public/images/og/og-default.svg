@@ -44,7 +44,7 @@
   </g>
 
   <!-- Key Facilities Badges -->
-  <g transform="translate(90, 400)">
+  <g transform="translate(90, 420)">
     <!-- Item 1 -->
     <g transform="translate(0, 0)">
       <rect x="2" y="2" width="220" height="38" rx="4" fill="#111111"/>
@@ -69,16 +69,6 @@
       <rect x="0" y="0" width="250" height="38" rx="4" fill="#FBF7EE" stroke="#111111" stroke-width="2.5"/>
       <text x="16" y="24" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="800" fill="#111111">✓ Garasi &amp; Gerbang 22.00</text>
     </g>
-  </g>
-
-  <!-- Bottom Website URL & Location -->
-  <g transform="translate(90, 515)">
-    <text x="0" y="20" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="900" fill="#111111">
-      🌐 kosanputri.kall.my.id
-    </text>
-    <text x="320" y="20" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#555555">
-      📍 Dewasari, Cijeungjing, Kab. Ciamis
-    </text>
   </g>
 
   <!-- Right Visual Container: Property Photo Frame with Neo-Brutalist Frame -->

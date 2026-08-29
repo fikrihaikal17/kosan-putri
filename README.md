@@ -1,5 +1,16 @@
 # Kost Putri Ibu Idah - Dokumentasi Sistem & Portal Web
 
+[![PHP](https://img.shields.io/badge/PHP-8.1%2B%20%7C%208.5-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
+[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
+[![Filament](https://img.shields.io/badge/Filament-v5-F59E0B?style=for-the-badge&logo=filament&logoColor=white)](https://filamentphp.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![DaisyUI](https://img.shields.io/badge/DaisyUI-v5-570DF8?style=for-the-badge&logo=daisyui&logoColor=white)](https://daisyui.com/)
+[![Alpine.js](https://img.shields.io/badge/Alpine.js-3.x-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=white)](https://alpinejs.dev/)
+[![Livewire](https://img.shields.io/badge/Livewire-3.x-FB70A9?style=for-the-badge&logo=livewire&logoColor=white)](https://livewire.laravel.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Chart.js](https://img.shields.io/badge/Chart.js-4.x-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
+
 Website profil resmi dan sistem manajemen konten (CMS) berbasis web untuk **Kost Putri Ibu Idah** yang berlokasi di Ciamis, Jawa Barat. Aplikasi ini dibangun dengan standar arsitektur modern menggunakan Laravel 13, Filament v5, Tailwind CSS, Alpine.js, dan Livewire 3. Sistem ini dirancang untuk memberikan transparansi informasi hunian bagi calon penghuni (mahasiswi dan karyawati) serta kemudahan pengelolaan operasional properti secara mandiri oleh pemilik kos.
 
 ---

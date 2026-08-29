@@ -70,7 +70,7 @@
                     <div>
                         <!-- Room Image -->
                         <div class="relative aspect-16/10 bg-brutal-cream border-2 border-brutal-black overflow-hidden mb-5">
-                            <img src="{{ $room->featured_image_url }}" alt="{{ $room->name }}" class="w-full h-full object-cover">
+                            <img src="{{ $room->featured_image_url }}" alt="{{ $room->name }}" width="600" height="375" loading="lazy" class="w-full h-full object-cover">
                             <div class="absolute top-3 left-3">
                                 <span class="bg-brutal-yellow text-brutal-black font-extrabold text-xs px-3 py-1 border-2 border-brutal-black neo-shadow-xs uppercase">
                                     {{ $room->bathroom_type }}

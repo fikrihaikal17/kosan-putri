@@ -70,7 +70,7 @@
                      data-caption="{{ $item->caption }}">
                     
                     <div class="aspect-4/3 overflow-hidden bg-brutal-cream border-2 border-brutal-black mb-3">
-                        <img src="{{ $item->url }}" alt="{{ $item->alt_text ?: $item->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
+                        <img src="{{ $item->url }}" alt="{{ $item->alt_text ?: $item->title }}" width="600" height="450" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                     </div>
 
                     <div class="flex items-center justify-between">

@@ -80,7 +80,7 @@
                 <!-- Main Room Image -->
                 <div class="bg-white border-3 border-brutal-black neo-shadow-lg p-3">
                     <div class="relative aspect-16/10 bg-brutal-cream border-2 border-brutal-black overflow-hidden">
-                        <img src="{{ $room->featured_image_url }}" alt="{{ $room->name }}" class="w-full h-full object-cover">
+                        <img src="{{ $room->featured_image_url }}" alt="{{ $room->name }}" width="800" height="500" class="w-full h-full object-cover">
                         <div class="absolute top-4 left-4">
                             <span class="bg-brutal-yellow text-brutal-black font-extrabold text-xs px-3 py-1.5 border-2 border-brutal-black neo-shadow-xs uppercase">
                                 {{ $room->bathroom_type }}
@@ -92,7 +92,7 @@
                         <div class="p-3 grid grid-cols-4 gap-3 bg-brutal-warm border-2 border-brutal-black mt-3">
                             @foreach($room->images as $img)
                                 <div class="aspect-4/3 overflow-hidden border-2 border-brutal-black">
-                                    <img src="{{ $img->url }}" alt="{{ $img->caption ?? $room->name }}" class="w-full h-full object-cover">
+                                    <img src="{{ $img->url }}" alt="{{ $img->caption ?? $room->name }}" width="400" height="300" loading="lazy" class="w-full h-full object-cover">
                                 </div>
                             @endforeach
                         </div>

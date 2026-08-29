@@ -242,11 +242,11 @@
             <div class="lg:col-span-6">
                 <div class="grid grid-cols-2 gap-4 items-stretch">
                     <div class="bg-white border-3 border-brutal-black neo-shadow p-2.5 flex flex-col justify-between">
-                        <img src="{{ asset('images/gallery/kamar-1.svg') }}" alt="Suasana Kamar" class="w-full aspect-square object-cover border border-brutal-black">
+                        <img src="{{ asset('images/gallery/kamar-1.svg') }}" alt="Suasana Kamar" width="400" height="400" loading="lazy" class="w-full aspect-square object-cover border border-brutal-black">
                         <p class="text-[11px] font-black text-center mt-2.5 uppercase text-brutal-black tracking-wide">Kamar Bersih</p>
                     </div>
                     <div class="bg-white border-3 border-brutal-black neo-shadow p-2.5 flex flex-col justify-between">
-                        <img src="{{ asset('images/gallery/dapur.svg') }}" alt="Dapur Bersama" class="w-full aspect-square object-cover border border-brutal-black">
+                        <img src="{{ asset('images/gallery/dapur.svg') }}" alt="Dapur Bersama" width="400" height="400" loading="lazy" class="w-full aspect-square object-cover border border-brutal-black">
                         <p class="text-[11px] font-black text-center mt-2.5 uppercase text-brutal-black tracking-wide">Dapur Sharing</p>
                     </div>
                 </div>
@@ -282,7 +282,7 @@
                     <div>
                         <!-- Room Image -->
                         <div class="relative aspect-16/10 bg-brutal-cream border-2 border-brutal-black overflow-hidden mb-5">
-                            <img src="{{ $room->featured_image_url }}" alt="{{ $room->name }}" class="w-full h-full object-cover">
+                            <img src="{{ $room->featured_image_url }}" alt="{{ $room->name }}" width="600" height="375" loading="lazy" class="w-full h-full object-cover">
                             <div class="absolute top-3 left-3">
                                 <span class="bg-brutal-yellow text-brutal-black font-extrabold text-xs px-3 py-1 border-2 border-brutal-black neo-shadow-xs uppercase">
                                     {{ $room->bathroom_type }}
@@ -484,7 +484,7 @@
                      data-caption="{{ $item->caption }}">
                     
                     <div class="aspect-4/3 overflow-hidden bg-brutal-cream border-2 border-brutal-black mb-3">
-                        <img src="{{ $item->url }}" alt="{{ $item->alt_text ?: $item->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
+                        <img src="{{ $item->url }}" alt="{{ $item->alt_text ?: $item->title }}" width="600" height="450" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                     </div>
 
                     <div class="flex items-center justify-between">

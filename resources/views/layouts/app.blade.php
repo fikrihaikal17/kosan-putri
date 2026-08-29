@@ -40,8 +40,167 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     </noscript>
 
-    <!-- Styles and Scripts via Vite -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Critical CSS: inlined for zero render-blocking delay on first paint -->
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; background-color: #fffdf7; color: #111111; }
+        body { background-color: #fffdf7; color: #111111; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+        ::selection { background-color: #ff8fab; color: #111111; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 800; letter-spacing: -0.02em; color: #111111; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Critical Layout */
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+        .grow { flex-grow: 1; }
+        .max-w-7xl { max-width: 80rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-3\.5 { padding-top: 0.875rem; padding-bottom: 0.875rem; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-2 { gap: 0.5rem; }
+        .gap-3 { gap: 0.75rem; }
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+        .hidden { display: none; }
+        .inline-flex { display: inline-flex; }
+        .grid { display: grid; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .sticky { position: sticky; }
+        .top-0 { top: 0; }
+        .z-40 { z-index: 40; }
+        .w-full { width: 100%; }
+        .w-10 { width: 2.5rem; }
+        .h-10 { height: 2.5rem; }
+        .w-11 { width: 2.75rem; }
+        .h-11 { height: 2.75rem; }
+        .shrink-0 { flex-shrink: 0; }
+        .antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .min-h-screen { min-height: 100vh; }
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .overflow-hidden { overflow: hidden; }
+        .space-y-3 > :not(:first-child) { margin-top: 0.75rem; }
+        .space-y-6 > :not(:first-child) { margin-top: 1.5rem; }
+        .pt-2 { padding-top: 0.5rem; }
+        .pt-4 { padding-top: 1rem; }
+        .mt-1 { margin-top: 0.25rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .p-2\.5 { padding: 0.625rem; }
+        .p-4 { padding: 1rem; }
+        .p-5 { padding: 1.25rem; }
+        .uppercase { text-transform: uppercase; }
+        .font-black { font-weight: 900; }
+        .font-extrabold { font-weight: 800; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .text-xs { font-size: 0.75rem; line-height: 1rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .text-base { font-size: 1rem; line-height: 1.5rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .leading-tight { line-height: 1.25; }
+        .leading-relaxed { line-height: 1.625; }
+        .tracking-tight { letter-spacing: -0.025em; }
+        .tracking-wider { letter-spacing: 0.05em; }
+        .tracking-wide { letter-spacing: 0.025em; }
+        .text-brutal-black { color: #111111; }
+        .text-brutal-darkgray { color: #333333; }
+        .bg-white { background-color: #ffffff; }
+        .bg-brutal-warm { background-color: #fffdf7; }
+        .bg-brutal-pink { background-color: #ff8fab; }
+        .bg-brutal-pink-light { background-color: #ffe5ec; }
+        .bg-brutal-yellow { background-color: #ffe66d; }
+        .bg-brutal-yellow-light { background-color: #fff9db; }
+        .bg-brutal-green { background-color: #b8d97a; }
+        .bg-brutal-green-light { background-color: #edf7dc; }
+        .bg-brutal-blue { background-color: #9ad8ff; }
+        .bg-brutal-blue-light { background-color: #e4f4ff; }
+        .bg-brutal-cream { background-color: #f6f3ea; }
+        .border-2 { border-width: 2px; border-style: solid; }
+        .border-3 { border-width: 3px; border-style: solid; }
+        .border-b-2 { border-bottom-width: 2px; border-bottom-style: solid; }
+        .border-b-3 { border-bottom-width: 3px; border-bottom-style: solid; }
+        .border-t-2 { border-top-width: 2px; border-top-style: solid; }
+        .border-brutal-black { border-color: #111111; }
+        .neo-shadow-xs { box-shadow: 2px 2px 0 #111111; }
+        .neo-shadow { box-shadow: 5px 5px 0 #111111; }
+        .neo-shadow-lg { box-shadow: 8px 8px 0 #111111; }
+        .object-cover { object-fit: cover; }
+        .aspect-4\/3 { aspect-ratio: 4/3; }
+        .transition-colors { transition-property: color, background-color, border-color; transition-duration: 150ms; transition-timing-function: cubic-bezier(0.4,0,0.2,1); }
+
+        /* Critical neo-btn */
+        .neo-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 800; font-size: 0.875rem; border: 2px solid #111111; border-radius: 6px; padding: 0.65rem 1.25rem; cursor: pointer; box-shadow: 4px 4px 0 #111111; transition: transform 0.12s ease, box-shadow 0.12s ease; text-decoration: none; line-height: 1.25; }
+        .neo-btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #111111; }
+        .neo-btn-primary { background-color: #ff8fab; color: #111111; }
+        .neo-btn-secondary { background-color: #ffffff; color: #111111; }
+
+        /* Responsive: sm */
+        @media (min-width: 640px) {
+            .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .sm\:py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+            .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .sm\:text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+            .sm\:text-5xl { font-size: 3rem; line-height: 1; }
+            .sm\:text-base { font-size: 1rem; line-height: 1.5rem; }
+            .sm\:text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+            .sm\:flex-row { flex-direction: row; }
+            .sm\:items-center { align-items: center; }
+            .sm\:p-5 { padding: 1.25rem; }
+            .sm\:flex { display: flex; }
+        }
+        /* Responsive: lg */
+        @media (min-width: 1024px) {
+            .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+            .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+            .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .lg\:col-span-7 { grid-column: span 7 / span 7; }
+            .lg\:col-span-5 { grid-column: span 5 / span 5; }
+            .lg\:text-6xl { font-size: 3.75rem; line-height: 1; }
+            .lg\:flex { display: flex; }
+        }
+
+        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .gap-12 { gap: 3rem; }
+        .max-w-2xl { max-width: 42rem; }
+        .max-w-md { max-width: 28rem; }
+        .stroke-3 { stroke-width: 3; }
+        .w-3\.5 { width: 0.875rem; }
+        .h-3\.5 { height: 0.875rem; }
+        .w-4 { width: 1rem; }
+        .h-4 { height: 1rem; }
+        .w-5 { width: 1.25rem; }
+        .h-5 { height: 1.25rem; }
+        .underline { text-decoration: underline; }
+    </style>
+
+    <!-- Full CSS: loaded async to avoid render-blocking -->
+    @php
+        $cssManifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+        $cssFile = $cssManifest['resources/css/app.css']['file'] ?? null;
+        $jsFile = $cssManifest['resources/js/app.js']['file'] ?? null;
+    @endphp
+
+    @if($cssFile)
+    <link rel="preload" as="style" href="/build/{{ $cssFile }}">
+    <link rel="stylesheet" href="/build/{{ $cssFile }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/build/{{ $cssFile }}"></noscript>
+    @endif
+
+    @if($jsFile)
+    <link rel="modulepreload" href="/build/{{ $jsFile }}">
+    <script type="module" src="/build/{{ $jsFile }}"></script>
+    @endif
 
     <!-- Comprehensive Schema.org Structured Data (LodgingBusiness & LocalBusiness) -->
     <script type="application/ld+json">

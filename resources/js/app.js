@@ -1,111 +1,58 @@
 import Alpine from 'alpinejs';
 import {
     createIcons,
-    Home,
-    Bed,
-    Wifi,
-    Zap,
-    Droplets,
-    Utensils,
-    Bike,
-    Sun,
-    Lock,
-    Key,
-    Bath,
-    Wind,
-    Sparkles,
     Check,
-    CheckCircle,
     ShieldCheck,
-    Users,
     MessageCircle,
-    MessageSquare,
-    MessageSquareText,
-    Send,
-    X,
-    Menu,
-    ChevronLeft,
-    ChevronRight,
-    ChevronDown,
-    ChevronUp,
-    MapPin,
-    Map,
-    Navigation,
-    ExternalLink,
-    Copy,
-    Image,
-    Calendar,
-    HelpCircle,
-    Clock,
-    Phone,
-    ArrowRight,
-    ArrowLeft,
     ArrowDown,
+    Lock,
+    Zap,
+    ArrowRight,
+    Menu,
+    X,
 } from 'lucide';
-import './kost.js';
 
-// Initialize Alpine.js
+// Initialize Alpine.js immediately (needed for FAQ accordion x-data)
 window.Alpine = Alpine;
 Alpine.start();
 
-const appIcons = {
-    Home,
-    Bed,
-    Wifi,
-    Zap,
-    Droplets,
-    Utensils,
-    Bike,
-    Sun,
-    Lock,
-    Key,
-    Bath,
-    Wind,
-    Sparkles,
+// Critical above-the-fold icons only
+const criticalIcons = {
     Check,
-    CheckCircle,
     ShieldCheck,
-    Users,
     MessageCircle,
-    MessageSquare,
-    MessageSquareText,
-    Send,
-    X,
-    Menu,
-    ChevronLeft,
-    ChevronRight,
-    ChevronDown,
-    ChevronUp,
-    MapPin,
-    Map,
-    Navigation,
-    ExternalLink,
-    Copy,
-    Image,
-    Calendar,
-    HelpCircle,
-    Clock,
-    Phone,
-    ArrowRight,
-    ArrowLeft,
     ArrowDown,
+    Lock,
+    Zap,
+    ArrowRight,
+    Menu,
+    X,
 };
 
-// Initialize Lucide Icons
-function initLucide() {
-    createIcons({ icons: appIcons });
+// Initialize critical icons immediately
+function initCriticalIcons() {
+    createIcons({ icons: criticalIcons });
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLucide);
+    document.addEventListener('DOMContentLoaded', initCriticalIcons);
 } else {
-    initLucide();
+    initCriticalIcons();
 }
 
-// Re-init when chat opens or new elements are added
-window.initLucide = initLucide;
-document.addEventListener('DOMContentLoaded', () => {
-    initLucide();
-    setTimeout(initLucide, 100);
-});
+// Defer loading of all remaining icons and kost.js modules
+// This runs after the page has rendered (requestIdleCallback or setTimeout fallback)
+function loadDeferredModules() {
+    import('./app-deferred.js').then(({ initDeferredIcons, initKostModules }) => {
+        initDeferredIcons();
+        initKostModules();
+        // Re-init for any icons that weren't in the critical set
+        window.initLucide = initDeferredIcons;
+    });
+}
 
+if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadDeferredModules);
+} else {
+    setTimeout(loadDeferredModules, 200);
+}

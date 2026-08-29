@@ -1,138 +1,214 @@
-# Kost Putri Ibu Idah - Website Resmi & Panel Admin
+# Kost Putri Ibu Idah - Dokumentasi Sistem & Portal Web
 
-Website resmi dan sistem manajemen konten untuk **Kost Putri Ibu Idah** (Ciamis, Jawa Barat). Dibangun menggunakan arsitektur modern berbasis Laravel dengan gaya visual Neo-Brutalism yang responsif, asisten interaktif Tanya Kost, serta Panel Admin Filament untuk pengelolaan kamar, fasilitas, galeri, lokasi, dan FAQ secara real-time.
+Website profil resmi dan sistem manajemen konten (CMS) berbasis web untuk **Kost Putri Ibu Idah** yang berlokasi di Ciamis, Jawa Barat. Aplikasi ini dibangun dengan standar arsitektur modern menggunakan Laravel 13, Filament v5, Tailwind CSS, Alpine.js, dan Livewire 3. Sistem ini dirancang untuk memberikan transparansi informasi hunian bagi calon penghuni (mahasiswi dan karyawati) serta kemudahan pengelolaan operasional properti secara mandiri oleh pemilik kos.
 
 ---
 
 ## Daftar Isi
-- [Fitur Utama](#fitur-utama)
-  - [Halaman Publik](#1-halaman-publik)
-  - [Panel Admin (Filament)](#2-panel-admin-filament)
-- [Teknologi yang Digunakan](#teknologi-yang-digunakan)
-- [Struktur Halaman & Rute](#struktur-halaman--rute)
-- [Panduan Instalasi](#panduan-instalasi)
-- [Akun Default Superadmin](#akun-default-superadmin)
-- [Pengujian & Kualitas Kode](#pengujian--kualitas-kode)
-- [Informasi Kontak & Lokasi](#informasi-kontak--lokasi)
+- [Ringkasan Proyek](#ringkasan-proyek)
+- [Fitur Sistem](#fitur-sistem)
+  - [1. Antarmuka Publik (Front-End)](#1-antarmuka-publik-front-end)
+  - [2. Widget Asisten Cerdas "Tanya Kost"](#2-widget-asisten-cerdas-tanya-kost)
+  - [3. Panel Kontrol Superadmin (Filament CMS)](#3-panel-kontrol-superadmin-filament-cms)
+- [Arsitektur Data & Model Database](#arsitektur-data--model-database)
+- [Struktur Rute & Endpoint](#struktur-rute--endpoint)
+- [Tumpukan Teknologi (Tech Stack)](#tumpukan-teknologi-tech-stack)
+- [Panduan Instalasi & Konfigurasi Lingkungan](#panduan-instalasi--konfigurasi-lingkungan)
+- [Kredensial Default Panel Admin](#kredensial-default-panel-admin)
+- [Standarisasi Pengujian Otomatis](#standarisasi-pengujian-otomatis)
+- [Informasi Operasional & Lokasi Resmi](#informasi-operasional--lokasi-resmi)
 
 ---
 
-## Fitur Utama
+## Ringkasan Proyek
 
-### 1. Halaman Publik
-- **Desain Neo-Brutalism Responsif**: Tata letak dengan garis batas tegas, bayangan kontras, tipografi modern, dan navigasi yang optimal untuk perangkat desktop maupun mobile.
-- **Beranda Interaktif**: Menampilkan ringkasan informasi kos, sorotan tipe kamar, daftar fasilitas terverifikasi, cuplikan galeri, lokasi peta presisi, serta tanya jawab ringkas.
-- **Pilihan Kamar (`/kamar`)**:
-  - Tipe A: Kamar dengan Kamar Mandi Dalam (Pribadi).
-  - Tipe B: Kamar dengan Kamar Mandi Sharing (Luar).
-  - Halaman detail kamar individual (`/kamar/{slug}`) lengkap dengan fasilitas dan tombol hubungi WhatsApp otomatis.
-- **Fasilitas Kos (`/fasilitas`)**:
-  - Menampilkan 6 fasilitas utama yang sudah termasuk dalam biaya sewa (Kasur, Wi-Fi, Listrik, Air, Kamar Mandi, Sirkulasi & Jendela).
-  - Menampilkan 4 fasilitas bersama (Dapur Sharing, Area Jemur, Garasi Motor, Keamanan Gerbang).
-- **Galeri Foto (`/galeri`)**:
-  - Filter kategori foto (Kamar, Kamar Mandi, Area Bersama, Fasilitas, Eksterior).
-  - Lightbox modal terintegrasi dengan tombol navigasi foto sebelumnya/selanjutnya dan tombol tutup.
-- **Lokasi & Petunjuk Arah (`/lokasi`)**:
-  - Menampilkan alamat resmi lengkap dan wilayah administratif.
-  - Peta Google Maps interaktif yang berfokus tepat pada titik koordinat Kost Putri Ibu Idah dengan penanda lokasi.
-  - Tombol aksi: "Buka di Google Maps" dan "Salin Alamat".
-  - Petunjuk arah, info garasi/parkir motor, dan jam tutup gerbang malam (22.00 WIB).
-- **Tanya Jawab FAQ (`/faq`)**:
-  - 10 daftar pertanyaan dan jawaban lengkap seputar ketentuan kos dengan tampilan akordeon yang rapi.
-- **Widget Tanya Kost AI**:
-  - Asisten informasi otomatis di pojok kanan bawah untuk menjawab pertanyaan calon penghuni seputar kamar, aturan, fasilitas, dan harga berdasarkan basis pengetahuan resmi.
+Kost Putri Ibu Idah merupakan hunian sewa khusus putri yang mengedepankan keamanan, ketenangan, dan kepraktisan. Sistem web ini memfasilitasi calon penyewa untuk meninjau ketersediaan kamar, spesifikasi fasilitas, galeri foto terverifikasi, tata tertib, peta lokasi berkoordinat presisi, serta panduan survey langsung via WhatsApp resmi pemilik kos.
+
+Desain antarmuka mengadopsi estetika **Neo-Brutalism Modern** dengan garis pembatas tegas (*bold border*), bayangan tajam (*hard shadows*), hierarki tipografi *Plus Jakarta Sans*, kontras warna yang nyaman, serta tata letak responsif di semua resolusi layar (ponsel, tablet, dan desktop).
 
 ---
 
-### 2. Panel Admin (Filament)
-Akses melalui URL: `http://127.0.0.1:8000/admin`
+## Fitur Sistem
 
-- **Dasbor Statistik & Analitik**:
-  - Pelacakan pengunjung langsung (Real-Time Live Visitor Tracking).
-  - Grafik tren kunjungan halaman (Page Views vs Unique Visitors).
-  - Ringkasan status kamar dan fasilitas aktif.
-- **Manajemen Pilihan Kamar (`/admin/rooms`)**: Tambah, perbarui, dan atur ketersediaan tipe kamar beserta foto dan fasilitasnya.
-- **Manajemen Fasilitas (`/admin/facilities`)**: Kelola daftar fasilitas termasuk biaya sewa dan fasilitas bersama.
-- **Manajemen Galeri Foto (`/admin/galleries`)**: Unggah foto properti kos berdasarkan kategori.
-- **Manajemen Lokasi & Peta (`/admin/locations`)**: Atur alamat resmi, garis lintang (latitude), garis bujur (longitude), Google Place ID, link navigasi, dan embed peta.
-- **Manajemen Tanya Jawab FAQ (`/admin/faqs`)**: Kelola daftar pertanyaan dan jawaban FAQ untuk pengunjung.
-- **Manajemen Aturan Kos (`/admin/house-rules`)**: Kelola tata tertib penghuni kos.
-- **Informasi Kos & Kontak (`/admin/business-settings`)**: Pengaturan nomor WhatsApp resmi Ibu Idah, profil kos, dan konfigurasi SEO.
+### 1. Antarmuka Publik (Front-End)
+
+#### A. Beranda Utama (`/`)
+- **Hero Section**: Penegasan identitas kos khusus putri dengan indikator kepercayaan utama (*Maksimal 2 orang per kamar*, *Listrik & Air termasuk*, *Akses Wi-Fi*), tombol aksi reservasi via WhatsApp, dan tombol navigasi kamar.
+- **Tentang Kami**: Ringkasan profil hunian, visi kenyamanan, serta tata letak simetris kartu foto properti terverifikasi.
+- **Pratinjau Kamar Unggulan**: Kartu ringkasan tipe kamar dengan penanda ketersediaan (*Tersedia* / *Penuh*), spesifikasi kamar mandi, dan tautan detail.
+- **Daftar Fasilitas Terverifikasi**: Menampilkan 6 fasilitas utama yang sudah termasuk biaya sewa dan 4 fasilitas bersama.
+- **Pratinjau Galeri**: Cuplikan 3 foto properti terbaru dengan tautan ke galeri lengkap.
+- **Lokasi & Peta Interaktif**: Peta Google Maps terintegrasi yang berfokus tepat pada koordinat bangunan kos, dilengkapi tombol *Salin Alamat* dan *Buka di Google Maps*.
+- **Tanya Jawab Terpopuler**: Menampilkan 3 pertanyaan FAQ teratas dengan akordeon interaktif.
+
+#### B. Pilihan Kamar (`/kamar` dan `/kamar/{slug}`)
+- **Katalog Kamar**: Menampilkan 2 tipe kamar utama:
+  1. *Tipe Kamar Mandi Dalam*: Kamar pribadi dengan fasilitas sanitasi di dalam ruangan untuk privasi maksimal.
+  2. *Tipe Kamar Mandi Luar (Sharing)*: Kamar bersih dengan akses fasilitas kamar mandi bersama yang terawat.
+- **Halaman Detail Kamar**: Menampilkan galeri foto kamar beresolusi tinggi, rincian kelengkapan fasilitas, aturan kapasitas maksimal penghuni, serta generator tautan WhatsApp dengan pesan kustom otomatis (*pre-filled message*).
+
+#### C. Fasilitas Lengkap (`/fasilitas`)
+- **Fasilitas Termasuk Biaya Sewa (Grid 2x3 Simetris)**:
+  1. *Kasur*: Sudah tersedia dan siap pakai di setiap kamar.
+  2. *Wi-Fi*: Akses koneksi internet gratis untuk kebutuhan belajar dan bekerja.
+  3. *Listrik*: Biaya listrik harian sudah termasuk dalam biaya bulanan (tanpa token terpisah).
+  4. *Air*: Pasokan air bersih lancar untuk mandi dan mencuci.
+  5. *Kamar Mandi*: Pilihan kamar mandi pribadi dalam kamar maupun kamar mandi sharing.
+  6. *Sirkulasi & Jendela*: Ventilasi dan pencahayaan alami di setiap kamar.
+- **Fasilitas Bersama & Keamanan (Grid 1x4)**:
+  1. *Dapur Sharing*: Dapur bersama untuk memasak harian.
+  2. *Area Jemur*: Tempat menjemur pakaian terlindung dan terkena sinar matahari.
+  3. *Garasi Motor*: Area parkir motor aman di dalam lingkungan kos.
+  4. *Keamanan Gerbang*: Gerbang utama tertutup yang dikunci maksimal pukul 22.00 WIB.
+
+#### D. Galeri Foto Properti (`/galeri`)
+- **Filter Kategori Dinamis**: Penyaringan instan berdasarkan kategori (*Semua*, *Kamar*, *Kamar Mandi*, *Area Bersama*, *Fasilitas*, *Eksterior*).
+- **Neo-Brutalist Lightbox Modal**: Penampil foto layar penuh dengan penengahan presisi, deskripsi foto, tombol navigasi foto sebelumnya (*Prev*) dan selanjutnya (*Next*), tombol tutup (*Close*), serta dukungan navigasi keyboard (`Esc`, panah kiri/kanan).
+
+#### E. Lokasi & Petunjuk Arah (`/lokasi`)
+- **Akurasi Titik Koordinat**: Peta Google Maps Embed langsung berfokus pada titik bangunan Kost Putri Ibu Idah (`Latitude: -7.3226066`, `Longitude: 108.3780388`, `Place ID: 0x8b96d290aad1c3ab:0x25e81025801d51c9`) pada tingkat pembesaran optimal (*zoom 17–19*).
+- **Keterangan Penanda**: Menyertakan catatan verifikasi lokasi resmi kos.
+- **Aksi Cepat**: Tombol *Salin Alamat* dengan umpan balik clipboard dan tombol *Buka di Google Maps*.
+- **Informasi Akses**: Patokan arah jalan, fasilitas garasi motor, kebijakan kunci gerbang malam, serta panduan survey fisik.
+- **Mekanisme Cadangan (Fallback)**: Penanganan otomatis jika iframe peta terhambat dengan menyajikan rincian alamat teks terstruktur dan tautan navigasi langsung.
+
+#### F. Pusat Informasi & FAQ (`/faq`)
+- Menyajikan 10 tanya jawab mendalam seputar kebijakan gender khusus putri, kapasitas maksimal, kelistrikan, pasokan air, Wi-Fi, kamar mandi, dapur, fasilitas cuci/jemur, parkir motor, dan jam malam gerbang.
+- Tipografi dengan format perataan rata kanan-kiri (*justify*) untuk kenyamanan membaca.
 
 ---
 
-## Teknologi yang Digunakan
+### 2. Widget Asisten Cerdas "Tanya Kost"
+- **Komponen Interaktif Mengambang (*Floating Trigger*)**: Terletak di sudut kanan bawah antarmuka pengguna.
+- **Knowledge Base Berbasis Fakta**: Sistem menjawab pertanyaan seputar properti secara instan dan akurat berdasarkan data terverifikasi (tanpa halusinasi data fiktif).
+- **Pintasan Pertanyaan Cepat (*Quick Prompts*)**: Tombol topik instan (Listrik, Kamar Mandi, Maksimal Orang, Jam Gerbang, Dapur, Alamat, Cara Survey).
+- **Guardrail Keamanan**: Menolak dan mengarahkan kembali pertanyaan di luar konteks kos (misalnya perhitungan matematika murni atau topik di luar properti).
+- **Penanganan Izin Khusus**: Menjelaskan prosedur izin langsung ke Ibu Idah untuk kebutuhan spesifik (misalnya pemasangan paku dinding, membawa alat elektronik daya tinggi, penambahan kasur pribadi, atau kepulangan larut malam karena lembur/tugas).
 
-| Komponen | Teknologi | Keterangan |
+---
+
+### 3. Panel Kontrol Superadmin (Filament CMS)
+Akses melalui: `http://127.0.0.1:8000/admin`
+
+- **Dasbor Statistik Pengunjung Real-Time**:
+  - Pelacakan langsung tampilan halaman (*Page Views*) dan pengunjung unik (*Unique Visitors*).
+  - Sinkronisasi warna metrik: Kartu Tampilan Halaman (Merah Muda / Primary) dan Pengunjung Unik (Kuning / Warning) selaras dengan kurva grafik.
+  - Grafik interaktif dengan filter rentang waktu: *Hari Ini (per jam)*, *7 Hari*, *14 Hari*, dan *30 Hari*.
+- **Manajemen Pilihan Kamar (`/admin/rooms`)**: Manajemen tipe kamar, status ketersediaan, upload foto, penetapan harga, dan relasi fasilitas.
+- **Manajemen Fasilitas (`/admin/facilities`)**: Pengaturan daftar fasilitas, pengelompokan (*Termasuk Biaya* vs *Bersama*), pemilihan ikon, dan urutan tampilan.
+- **Manajemen Galeri (`/admin/galleries`)**: Unggah foto properti, penetapan kategori, judul, teks alternatif SEO, dan takarir (*caption*).
+- **Manajemen Lokasi & Peta (`/admin/locations`)**: Pengaturan terpusat untuk alamat lengkap, koordinat latitude & longitude, Google Place ID, link navigasi, URL embed, patokan arah, dan jam kunci gerbang.
+- **Manajemen FAQ (`/admin/faqs`)**: Penambahan dan pembaruan pertanyaan serta jawaban tanya jawab.
+- **Manajemen Aturan Kos (`/admin/house-rules`)**: Penyesuaian tata tertib dan aturan kenyamanan bersama.
+- **Informasi Bisnis & Kontak (`/admin/business-settings`)**: Pengaturan nomor WhatsApp tunggal resmi pemilik kos, deskripsi usaha, dan konfigurasi meta SEO.
+
+---
+
+## Arsitektur Data & Model Database
+
+| Model | Tabel Database | Peran & Deskripsi |
 | :--- | :--- | :--- |
-| **Backend Framework** | Laravel 13 (PHP 8.1+) | Framework aplikasi utama |
-| **Admin Panel** | Filament v5 | Panel manajemen data terintegrasi |
-| **Frontend Styling** | Tailwind CSS & DaisyUI | Sistem desain dan komponen antarmuka |
-| **Reaktivitas** | Alpine.js & Livewire | Interaktivitas komponen antarmuka |
-| **Database** | MySQL / MariaDB | Penyimpanan data relasional |
-| **Pengujian** | PHPUnit | Pengujian otomatis fungsionalitas dan fitur |
+| `User` | `users` | Akun autentikasi pengelola panel superadmin. |
+| `BusinessSetting` | `business_settings` | Pengaturan tunggal identitas kos, nomor WhatsApp, alamat, koordinat geo, dan meta SEO. |
+| `Room` | `rooms` | Entitas tipe kamar kos, slug URL, deskripsi, tipe kamar mandi, status ketersediaan, dan urutan. |
+| `RoomImage` | `room_images` | Berkas foto terkait kamar dengan penanda foto utama (*is_primary*). |
+| `Facility` | `facilities` | Daftar fasilitas kos, tipe inklusi sewa (*is_included*), status aktif, dan ikon visual. |
+| `FacilityRoom` | `facility_room` | Tabel pivot relasi many-to-many antara kamar dan fasilitas. |
+| `Gallery` | `galleries` | Foto galeri properti, kategori, teks takarir, dan urutan tampil. |
+| `Faq` | `faqs` | Pertanyaan dan jawaban informasi umum calon penghuni. |
+| `HouseRule` | `house_rules` | Tata tertib dan aturan kenyamanan penghuni. |
+| `PageView` | `page_views` | Pencatatan log kunjungan analitik (alamat IP, session ID, URL rute, user agent, waktu). |
 
 ---
 
-## Struktur Halaman & Rute
+## Struktur Rute & Endpoint
 
-### Rute Publik
-| Rute | Nama Rute | Deskripsi |
-| :--- | :--- | :--- |
-| `GET /` | `home` | Halaman Beranda Utama |
-| `GET /kamar` | `rooms.index` | Daftar Pilihan Kamar |
-| `GET /kamar/{slug}` | `rooms.show` | Detail Kamar Tertentu |
-| `GET /fasilitas` | `facilities.index` | Rincian Fasilitas Lengkap |
-| `GET /galeri` | `gallery.index` | Galeri Foto dengan Lightbox |
-| `GET /lokasi` | `location.index` | Peta & Panduan Lokasi |
-| `GET /faq` | `faq.index` | Tanya Jawab FAQ |
+### Rute Publik (Web)
+| Metode | URI | Nama Rute | Pengontrol / Aksi |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/` | `home` | `HomeController@index` |
+| `GET` | `/kamar` | `rooms.index` | `HomeController@rooms` |
+| `GET` | `/kamar/{slug}` | `rooms.show` | `HomeController@roomDetail` |
+| `GET` | `/fasilitas` | `facilities.index` | `HomeController@facilities` |
+| `GET` | `/galeri` | `gallery.index` | `HomeController@gallery` |
+| `GET` | `/lokasi` | `location.index` | `HomeController@location` |
+| `GET` | `/faq` | `faq.index` | `HomeController@faq` |
 
-### Rute Panel Admin
-| Rute | Modul | Deskripsi |
+### Endpoint API Asisten AI
+| Metode | URI | Deskripsi |
 | :--- | :--- | :--- |
-| `GET /admin` | Dasbor | Statistik Pengunjung & Ringkasan Data |
-| `GET /admin/rooms` | Kamar | Kelola Kamar & Ketersediaan |
-| `GET /admin/facilities` | Fasilitas | Kelola Fasilitas Kos |
-| `GET /admin/galleries` | Galeri | Kelola Foto Galeri |
-| `GET /admin/locations` | Lokasi | Pengaturan Alamat & Koordinat Peta |
-| `GET /admin/faqs` | FAQ | Kelola Tanya Jawab |
-| `GET /admin/house-rules` | Aturan | Kelola Tata Tertib Kos |
-| `GET /admin/business-settings` | Profil & Kontak | Pengaturan Kontak WhatsApp & Identitas Usaha |
+| `POST` | `/api/tanya-kost` | Pemrosesan pertanyaan asisten Tanya Kost berbasis basis pengetahuan terverifikasi. |
+
+### Rute Panel Admin (Filament)
+| Metode | URI | Modul Panel Admin |
+| :--- | :--- | :--- |
+| `GET` | `/admin` | Dasbor Analitik & Statistik Real-Time |
+| `GET` | `/admin/login` | Halaman Masuk Superadmin |
+| `GET` | `/admin/rooms` | Manajemen Tipe Kamar & Ketersediaan |
+| `GET` | `/admin/facilities` | Manajemen Fasilitas Kos |
+| `GET` | `/admin/galleries` | Manajemen Galeri Foto |
+| `GET` | `/admin/locations` | Manajemen Lokasi, Koordinat & Peta |
+| `GET` | `/admin/faqs` | Manajemen Tanya Jawab (FAQ) |
+| `GET` | `/admin/house-rules` | Manajemen Aturan & Tata Tertib |
+| `GET` | `/admin/business-settings` | Informasi Bisnis, WhatsApp & SEO |
 
 ---
 
-## Panduan Instalasi
+## Tumpukan Teknologi (Tech Stack)
 
-### Prasyarat
-- PHP >= 8.1
-- Composer >= 2.x
-- Node.js >= 18.x & NPM
-- MySQL / MariaDB
+- **Bahasa Pemrograman**: PHP >= 8.1 / PHP 8.2
+- **Framework Utama**: Laravel 13.x
+- **Panel Administrasi**: Filament v5
+- **Mesin Basis Data**: MySQL 8.x / MariaDB
+- **Tata Letak & Gaya Visual**: Tailwind CSS v4 & DaisyUI v5
+- **Interaktivitas Sisi Klien**: Alpine.js & Vanilla JavaScript
+- **Pustaka Ikon**: Lucide Icons
+- **Pustaka Visualisasi Data**: Chart.js
+- **Alat Kompilasi Asset**: Vite 8.x
+- **Framework Pengujian**: PHPUnit 11.x
 
-### Langkah Pemasangan
+---
 
-1. **Clone Repositori**:
+## Panduan Instalasi & Konfigurasi Lingkungan
+
+### 1. Prasyarat Sistem
+Pastikan perangkat kerja telah terpasang:
+- PHP versi 8.1 atau lebih baru dengan ekstensi `pdo_mysql`, `mbstring`, `openssl`, `bcmath`, `curl`, `fileinfo`, `gd`.
+- Composer versi 2.x
+- Node.js versi 18.x atau lebih baru dan NPM
+- MySQL Server (misalnya melalui Laragon, XAMPP, atau instalasi native)
+
+### 2. Langkah-Langkah Pemasangan
+
+1. **Unduh Repositori**:
    ```bash
    git clone https://github.com/fikrihaikal17/kosan-putri.git
    cd kosan-putri
    ```
 
-2. **Instal Dependensi PHP**:
+2. **Instal Dependensi Backend (Composer)**:
    ```bash
    composer install
    ```
 
-3. **Instal Dependensi Frontend**:
+3. **Instal Dependensi Frontend (NPM)**:
    ```bash
    npm install
    ```
 
-4. **Konfigurasi Environment (`.env`)**:
+4. **Konfigurasi Berkas Lingkungan (`.env`)**:
+   Salin berkas contoh konfigurasi:
    ```bash
    cp .env.example .env
    ```
-   Sesuaikan pengaturan database pada file `.env`:
+   Buka berkas `.env` dan sesuaikan parameter koneksi basis data:
    ```env
+   APP_NAME="Kost Putri Ibu Idah"
+   APP_ENV=local
+   APP_KEY=
+   APP_DEBUG=true
+   APP_URL=http://127.0.0.1:8000
+
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
@@ -141,59 +217,74 @@ Akses melalui URL: `http://127.0.0.1:8000/admin`
    DB_PASSWORD=
    ```
 
-5. **Generate Application Key**:
+5. **Generate Kunci Enkripsi Aplikasi**:
    ```bash
    php artisan key:generate
    ```
 
-6. **Jalankan Migrasi & Database Seeder**:
+6. **Eksekusi Migrasi & Pembuatan Data Awal (Seeder)**:
    ```bash
    php artisan migrate:fresh --seed
    ```
+   *Perintah ini akan menyusun seluruh tabel basis data dan menyuntikkan data resmi untuk kamar, fasilitas, galeri, lokasi presisi, aturan kos, FAQ, serta akun superadmin.*
 
-7. **Kompilasi Asset Frontend**:
+7. **Kompilasi Berkas Aset Frontend**:
+   Untuk mode produksi:
    ```bash
    npm run build
+   ```
+   Atau untuk mode pengembangan (*hot module replacement*):
+   ```bash
+   npm run dev
    ```
 
 8. **Jalankan Server Lokal**:
    ```bash
    php artisan serve
    ```
-   Akses aplikasi di browser:
-   - Website Publik: [http://127.0.0.1:8000](http://127.0.0.1:8000)
-   - Panel Admin: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
+   Aplikasi dapat diakses melalui peramban:
+   - Antarmuka Publik: `http://127.0.0.1:8000`
+   - Panel Admin: `http://127.0.0.1:8000/admin`
 
 ---
 
-## Akun Default Superadmin
+## Kredensial Default Panel Admin
 
-Gunakan akun berikut untuk masuk ke Panel Admin:
+Tersedia dua akun superadmin terverifikasi yang siap digunakan setelah proses seeding basis data:
 
-- **URL Login**: `http://127.0.0.1:8000/admin/login`
-- **Email**: `admin@kosanputri.com` (atau `admin@kostputriibuidah.com`)
-- **Password**: `password`
+- **Akun Utama**:
+  - Email: `admin@kosanputri.com`
+  - Password: `password`
+- **Akun Alternatif**:
+  - Email: `admin@kostputriibuidah.com`
+  - Password: `password`
 
-*(Password dapat diperbarui kapan saja melalui panel admin)*
+*Kredensial dapat diperbarui sewaktu-waktu melalui menu pengaturan akun di panel admin.*
 
 ---
 
-## Pengujian & Kualitas Kode
+## Standarisasi Pengujian Otomatis
 
-Jalankan suite pengujian otomatis dengan perintah:
+Proyek ini dilengkapi pengujian otomatis menyeluruh untuk memastikan keandalan rute publik, integritas data seeder, keamanan panel admin, fungsionalitas asisten Tanya Kost, pembatasan guardrail, dan akurasi informasi lokasi.
+
+Jalankan pengujian dengan perintah:
 
 ```bash
 php artisan test
 ```
 
+Seluruh 16 pengujian fitur (*feature tests*) dan unit dengan 60 *assertions* telah terverifikasi lulus secara penuh (100% Passed).
+
 ---
 
-## Informasi Kontak & Lokasi
+## Informasi Operasional & Lokasi Resmi
 
-- **Nama Usaha**: Kost Putri Ibu Idah
-- **Jenis Hunian**: Khusus Mahasiswi & Karyawati Putri
-- **WhatsApp Resmi**: `0813-3925-9179`
-- **Alamat Resmi**: Jalan K. H. Zakaria No.82, RT.3/RW.14, Ds. Dewasari, Cijeungjing, Kab. Ciamis, Jawa Barat, 46271
-- **Koordinat Peta**: `-7.3226066, 108.3780388`
-- **Google Maps**: [https://maps.app.goo.gl/SjebDzqDyygXVm3V6](https://maps.app.goo.gl/SjebDzqDyygXVm3V6)
-- **Jam Kunci Gerbang**: Maksimal pukul 22.00 WIB
+- **Nama Properti**: Kost Putri Ibu Idah
+- **Segmentasi Hunian**: Mahasiswi dan Karyawati Putri
+- **Nomor Kontak Resmi (WhatsApp)**: `0813-3925-9179` (`081339259179`)
+- **Alamat Resmi Lengkap**: Jalan K. H. Zakaria No. 82, RT. 3/RW. 14, Ds. Dewasari, Kec. Cijeungjing, Kab. Ciamis, Jawa Barat, 46271
+- **Titik Koordinat Geografis**: Latitude `-7.3226066`, Longitude `108.3780388`
+- **Google Place ID**: `0x8b96d290aad1c3ab:0x25e81025801d51c9`
+- **Tautan Navigasi Google Maps**: [Buka di Google Maps](https://maps.app.goo.gl/SjebDzqDyygXVm3V6)
+- **Ketentuan Jam Malam**: Gerbang utama ditutup dan dikunci maksimal pukul 22.00 WIB
+- **Kebijakan Survey**: Survey fisik ke lokasi wajib membuat janji temu terlebih dahulu melalui WhatsApp resmi pemilik kos demi menjaga privasi dan keamanan penghuni.

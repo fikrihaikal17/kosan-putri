@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Fasilitas Lengkap & Gratis | Kost Putri Ibu Idah Ciamis')
-@section('meta_description', 'Daftar fasilitas Kost Putri Ibu Idah Ciamis: Kasur, Wi-Fi gratis, listrik dan air termasuk biaya sewa, kamar mandi dalam/sharing, dapur bersama, dan garasi motor.')
+@section('title', 'Fasilitas Kost Putri Ibu Idah')
+@section('meta_description', 'Fasilitas yang tersedia meliputi kasur, Wi-Fi, listrik dan air termasuk, kamar mandi, dapur bersama, area jemur, dan garasi motor.')
 @section('meta_keywords', 'fasilitas kost putri ciamis, kosan free wifi ciamis, kosan gratis listrik air ciamis, fasilitas kost ibu idah')
+@section('og_image', 'https://kosanputri.kall.my.id/images/gallery/garasi.svg')
+@section('canonical_url', 'https://kosanputri.kall.my.id/fasilitas')
 
 @push('schema')
 <script type="application/ld+json">

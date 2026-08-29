@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <!-- Warm Neo-Brutalist Background -->
+  <rect width="1200" height="630" fill="#FBF7EE"/>
+  
+  <!-- Outer Hard Border & Offset Shadow Container -->
+  <!-- Shadow -->
+  <rect x="52" y="52" width="1116" height="546" rx="16" fill="#111111"/>
+  <!-- Main Card -->
+  <rect x="40" y="40" width="1116" height="546" rx="16" fill="#FFFFFF" stroke="#111111" stroke-width="6"/>
+
+  <!-- Top Accent Bar: Pink & Yellow Strip -->
+  <rect x="43" y="43" width="1110" height="18" rx="12" fill="#FF5E8A"/>
+  <rect x="43" y="52" width="1110" height="9" fill="#FFE600"/>
+
+  <!-- Left Content Area -->
+  <!-- Category Badge -->
+  <g transform="translate(90, 100)">
+    <!-- Shadow -->
+    <rect x="4" y="4" width="370" height="42" rx="4" fill="#111111"/>
+    <!-- Box -->
+    <rect x="0" y="0" width="370" height="42" rx="4" fill="#FF5E8A" stroke="#111111" stroke-width="3"/>
+    <text x="24" y="27" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="900" fill="#111111" letter-spacing="1">
+      ★ KOS KHUSUS PUTRI — CIAMIS
+    </text>
+  </g>
+
+  <!-- Main Headline -->
+  <text x="90" y="215" font-family="Plus Jakarta Sans, sans-serif" font-size="64" font-weight="900" fill="#111111" letter-spacing="-1">
+    KOST PUTRI
+  </text>
+  <text x="90" y="285" font-family="Plus Jakarta Sans, sans-serif" font-size="64" font-weight="900" fill="#FF5E8A" stroke="#111111" stroke-width="2" letter-spacing="-1">
+    IBU IDAH
+  </text>
+
+  <!-- Tagline Box -->
+  <g transform="translate(90, 320)">
+    <!-- Shadow -->
+    <rect x="4" y="4" width="340" height="50" rx="6" fill="#111111"/>
+    <!-- Box -->
+    <rect x="0" y="0" width="340" height="50" rx="6" fill="#FFE600" stroke="#111111" stroke-width="3"/>
+    <text x="24" y="32" font-family="Plus Jakarta Sans, sans-serif" font-size="20" font-weight="900" fill="#111111" letter-spacing="0.5">
+      “Nyaman • Aman • Praktis”
+    </text>
+  </g>
+
+  <!-- Key Facilities Badges -->
+  <g transform="translate(90, 400)">
+    <!-- Item 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="2" y="2" width="220" height="38" rx="4" fill="#111111"/>
+      <rect x="0" y="0" width="220" height="38" rx="4" fill="#FBF7EE" stroke="#111111" stroke-width="2.5"/>
+      <text x="16" y="24" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="800" fill="#111111">✓ Kasur &amp; Wi-Fi Cepat</text>
+    </g>
+    <!-- Item 2 -->
+    <g transform="translate(235, 0)">
+      <rect x="2" y="2" width="250" height="38" rx="4" fill="#111111"/>
+      <rect x="0" y="0" width="250" height="38" rx="4" fill="#FBF7EE" stroke="#111111" stroke-width="2.5"/>
+      <text x="16" y="24" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="800" fill="#111111">✓ Listrik &amp; Air Termasuk</text>
+    </g>
+    <!-- Item 3 -->
+    <g transform="translate(0, 48)">
+      <rect x="2" y="2" width="220" height="38" rx="4" fill="#111111"/>
+      <rect x="0" y="0" width="220" height="38" rx="4" fill="#FBF7EE" stroke="#111111" stroke-width="2.5"/>
+      <text x="16" y="24" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="800" fill="#111111">✓ Pilihan KM Dalam/Luar</text>
+    </g>
+    <!-- Item 4 -->
+    <g transform="translate(235, 48)">
+      <rect x="2" y="2" width="250" height="38" rx="4" fill="#111111"/>
+      <rect x="0" y="0" width="250" height="38" rx="4" fill="#FBF7EE" stroke="#111111" stroke-width="2.5"/>
+      <text x="16" y="24" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="800" fill="#111111">✓ Garasi &amp; Gerbang 22.00</text>
+    </g>
+  </g>
+
+  <!-- Bottom Website URL & Location -->
+  <g transform="translate(90, 515)">
+    <text x="0" y="20" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="900" fill="#111111">
+      🌐 kosanputri.kall.my.id
+    </text>
+    <text x="320" y="20" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="700" fill="#555555">
+      📍 Dewasari, Cijeungjing, Kab. Ciamis
+    </text>
+  </g>
+
+  <!-- Right Visual Container: Property Photo Frame with Neo-Brutalist Frame -->
+  <g transform="translate(630, 100)">
+    <!-- Hard Shadow -->
+    <rect x="12" y="12" width="470" height="420" rx="12" fill="#111111"/>
+    <!-- Outer Card -->
+    <rect x="0" y="0" width="470" height="420" rx="12" fill="#FFFFFF" stroke="#111111" stroke-width="4"/>
+    
+    <!-- Interior Visual Box -->
+    <rect x="16" y="16" width="438" height="300" rx="8" fill="#FFF5F7" stroke="#111111" stroke-width="2"/>
+    
+    <!-- Stylized Properti Illustration / Room Symbol -->
+    <!-- Room Wall & Bed Graphic -->
+    <path d="M 46 250 L 46 170 L 424 170 L 424 250 Z" fill="#FFE600" stroke="#111111" stroke-width="3"/>
+    <rect x="70" y="130" width="90" height="40" rx="6" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+    <rect x="175" y="130" width="90" height="40" rx="6" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+    <rect x="46" y="220" width="378" height="50" fill="#FF5E8A" stroke="#111111" stroke-width="3"/>
+    
+    <!-- Window with Breeze -->
+    <rect x="300" y="45" width="100" height="90" fill="#FFFFFF" stroke="#111111" stroke-width="3"/>
+    <line x1="350" y1="45" x2="350" y2="135" stroke="#111111" stroke-width="2"/>
+    <line x1="300" y1="90" x2="400" y2="90" stroke="#111111" stroke-width="2"/>
+    
+    <!-- Brand Logo Stamp in Top Corner -->
+    <g transform="translate(36, 36)">
+      <rect x="4" y="4" width="70" height="70" rx="8" fill="#111111"/>
+      <rect x="0" y="0" width="70" height="70" rx="8" fill="#FF5E8A" stroke="#111111" stroke-width="3"/>
+      <text x="14" y="48" font-family="Plus Jakarta Sans, sans-serif" font-size="34" font-weight="900" fill="#111111">KP</text>
+    </g>
+
+    <!-- Verified Property Caption -->
+    <rect x="16" y="332" width="438" height="72" rx="6" fill="#FBF7EE" stroke="#111111" stroke-width="2"/>
+    <text x="36" y="360" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="900" fill="#111111">
+      ✓ Properti Terverifikasi &amp; Siap Huni
+    </text>
+    <text x="36" y="385" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#555555">
+      Maksimal 2 Orang/Kamar • Khusus Mahasiswi &amp; Karyawati
+    </text>
+  </g>
+</svg>

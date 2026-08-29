@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Lokasi & Petunjuk Arah | Kost Putri Ibu Idah Ciamis')
-@section('meta_description', 'Lokasi resmi Kost Putri Ibu Idah di Jalan K. H. Zakaria No. 82, Ds. Dewasari, Kec. Cijeungjing, Kab. Ciamis. Peta Google Maps akurat dan petunjuk arah survey.')
+@section('title', 'Lokasi Kost Putri Ibu Idah')
+@section('meta_description', 'Temukan lokasi Kost Putri Ibu Idah dan lihat alamat lengkap melalui Google Maps.')
 @section('meta_keywords', 'lokasi kost putri ciamis, peta kost ibu idah, alamat kosan putri ciamis, kost dewasari cijeungjing ciamis, petunjuk arah kost')
+@section('og_image', 'https://kosanputri.kall.my.id/images/gallery/eksterior.svg')
+@section('canonical_url', 'https://kosanputri.kall.my.id/lokasi')
 
 @push('schema')
 <script type="application/ld+json">

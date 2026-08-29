@@ -282,9 +282,19 @@ Sistem ini telah dikonfigurasi secara mendalam untuk meraih visibilitas maksimal
 ### 4. Tag Meta Geografis & SEO Lokal (Ciamis, Jawa Barat)
 - Dilengkapi tag `geo.region` (`ID-JB`), `geo.placename` (`Ciamis`), `geo.position` (`-7.3226066;108.3780388`), serta `ICBM` untuk mempercepat pemetaan di Google Search Lokal dan Google Maps.
 
-### 5. Media Sosial & PWA (Open Graph & Twitter Cards)
-- Kartu pratinjau resolusi tinggi (1200x630px) untuk WhatsApp, Facebook, dan Twitter/X.
-- Dukungan PWA Web App Manifest (`/site.webmanifest`) dengan ikon maskable dan tema `#FF5E8A`.
+### 5. Media Sosial & Tautan Pratinjau (Open Graph & Twitter Cards)
+- **Komponen Blade Terpusat**: Menggunakan `<x-seo>` yang terintegrasi di `layouts/app.blade.php` untuk merender seluruh meta tags `og:*` dan `twitter:*` secara *server-side* murni (bebas ketergantungan JavaScript).
+- **Gambar OG Standar Resmi (1200 x 630 px)**: Didesain dengan gaya *Refined Neo-Brutalism* berlatar putih hangat (`#FBF7EE`), bingkai tegas (`#111111`), bayangan *hard-offset*, tipografi tebal, aksen warna brand pink (`#FF5E8A`), dan visual kamar/fasilitas terverifikasi.
+- **Metadata Dinamis per Halaman**:
+  - Beranda (`/`): `og:title` ("Kost Putri Ibu Idah"), deskripsi spesifik, dan gambar OG utama.
+  - Pilihan Kamar (`/kamar`): `og:title` ("Pilihan Tipe Kamar | Kost Putri Ibu Idah") dan deskripsi pilihan kamar mandi dalam/luar.
+  - Detail Kamar (`/kamar/{slug}`): `og:title` dinamis berdasarkan database MySQL ("Kamar [Nama] | Kost Putri Ibu Idah"), deskripsi spesifikasi kamar, dan foto kamar asli sebagai `og:image`.
+  - Fasilitas (`/fasilitas`): `og:title` ("Fasilitas Kost Putri Ibu Idah") dan foto garasi/dapur bersama.
+  - Galeri (`/galeri`): `og:title` ("Galeri Kost Putri Ibu Idah") dan foto suasana properti.
+  - Lokasi (`/lokasi`): `og:title` ("Lokasi Kost Putri Ibu Idah") dengan deskripsi panduan Google Maps (tanpa koordinat mentah).
+  - Tanya Jawab (`/faq`): `og:title` ("FAQ | Kost Putri Ibu Idah").
+- **Panel Manajemen Admin**: Superadmin dapat memperbarui `og_title`, `og_description`, dan mengunggah `og_image` baru kapan saja melalui panel Filament, lengkap dengan *Live Social Preview Card* (simulasi pratinjau tautan WhatsApp/Facebook).
+- **Dukungan PWA**: Web App Manifest (`/site.webmanifest`) dengan ikon maskable dan tema `#FF5E8A`.
 
 ---
 

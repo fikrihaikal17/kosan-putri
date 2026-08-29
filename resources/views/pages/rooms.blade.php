@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Pilihan Tipe Kamar | Kost Putri Ibu Idah Ciamis')
-@section('meta_description', 'Lihat pilihan tipe kamar di Kost Putri Ibu Idah Ciamis: Kamar Mandi Dalam dan Kamar Mandi Luar. Fasilitas kasur, Wi-Fi, listrik dan air termasuk biaya sewa.')
+@section('title', 'Pilihan Tipe Kamar | Kost Putri Ibu Idah')
+@section('meta_description', 'Pilihan kamar mandi dalam dan kamar mandi sharing dengan kasur, Wi-Fi, listrik dan air sudah termasuk.')
 @section('meta_keywords', 'pilihan kamar kost putri ciamis, sewa kamar kos putri, kost kamar mandi dalam ciamis, kamar kost ciamis murah')
+@section('og_image', 'https://kosanputri.kall.my.id/images/rooms/kamar-mandi-dalam.svg')
+@section('canonical_url', 'https://kosanputri.kall.my.id/kamar')
 
 @push('schema')
 <script type="application/ld+json">

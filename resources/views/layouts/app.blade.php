@@ -7,56 +7,19 @@
 
     @php
         $siteDomain = 'https://kosanputri.kall.my.id';
-        $currentPath = request()->getPathInfo() === '/' ? '' : request()->getPathInfo();
-        $defaultCanonical = $siteDomain . $currentPath;
-        $pageTitle = trim($__env->yieldContent('title')) ?: ($business['seo_title'] ?? 'Kost Putri Ibu Idah Ciamis | Kos Khusus Putri Nyaman & Praktis');
-        $pageDesc = trim($__env->yieldContent('meta_description')) ?: ($business['seo_description'] ?? 'Kost Putri Ibu Idah adalah kos khusus mahasiswi dan karyawati di Ciamis (Dewasari, Cijeungjing). Fasilitas lengkap: kasur, Wi-Fi gratis, listrik & air termasuk sewa, pilihan kamar mandi dalam/luar, dapur, dan garasi motor aman.');
-        $pageKeywords = trim($__env->yieldContent('meta_keywords')) ?: 'kost putri ciamis, kosan putri ibu idah, kost putri ciamis murah, kos mahasiswi ciamis, sewa kos putri cijeungjing dewasari, kost kamar mandi dalam ciamis, kosan putri ciamis';
-        $pageOgImage = trim($__env->yieldContent('og_image')) ?: $siteDomain . '/images/gallery/eksterior.svg';
-        $pageType = trim($__env->yieldContent('og_type')) ?: 'website';
     @endphp
 
-    <!-- Primary SEO Meta Tags -->
-    <title>{{ $pageTitle }}</title>
-    <meta name="title" content="{{ $pageTitle }}">
-    <meta name="description" content="{{ $pageDesc }}">
-    <meta name="keywords" content="{{ $pageKeywords }}">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="@yield('canonical_url', $defaultCanonical)">
-
-    <!-- Geographic / Local SEO Meta Tags for Google Ciamis -->
-    <meta name="geo.region" content="ID-JB">
-    <meta name="geo.placename" content="Ciamis">
-    <meta name="geo.position" content="-7.3226066;108.3780388">
-    <meta name="ICBM" content="-7.3226066, 108.3780388">
-    <meta name="city" content="Ciamis">
-    <meta name="state" content="Jawa Barat">
-    <meta name="country" content="Indonesia">
-    <meta name="language" content="Indonesian">
-    <meta name="author" content="Kost Putri Ibu Idah">
-    <meta name="copyright" content="Kost Putri Ibu Idah">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="{{ $pageType }}">
-    <meta property="og:site_name" content="Kost Putri Ibu Idah">
-    <meta property="og:url" content="@yield('canonical_url', $defaultCanonical)">
-    <meta property="og:title" content="{{ $pageTitle }}">
-    <meta property="og:description" content="{{ $pageDesc }}">
-    <meta property="og:image" content="{{ $pageOgImage }}">
-    <meta property="og:image:alt" content="Kost Putri Ibu Idah Ciamis">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="id_ID">
-
-    <!-- Twitter Cards -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="kosanputri.kall.my.id">
-    <meta property="twitter:url" content="@yield('canonical_url', $defaultCanonical)">
-    <meta property="twitter:title" content="{{ $pageTitle }}">
-    <meta property="twitter:description" content="{{ $pageDesc }}">
-    <meta property="twitter:image" content="{{ $pageOgImage }}">
-    <meta property="twitter:image:alt" content="Kost Putri Ibu Idah Ciamis">
+    <!-- Primary SEO & Social Link Preview (Open Graph & Twitter Cards) -->
+    <x-seo
+        :title="trim($__env->yieldContent('title')) ?: null"
+        :description="trim($__env->yieldContent('meta_description')) ?: null"
+        :image="trim($__env->yieldContent('og_image')) ?: null"
+        :url="trim($__env->yieldContent('canonical_url')) ?: null"
+        :type="trim($__env->yieldContent('og_type')) ?: 'website'"
+        :keywords="trim($__env->yieldContent('meta_keywords')) ?: null"
+        :business="$business ?? []"
+        :contact="$contact ?? []"
+    />
 
     <!-- Favicon & Mobile Web App Manifest -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">

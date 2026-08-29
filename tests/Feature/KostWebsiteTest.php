@@ -253,4 +253,71 @@ class KostWebsiteTest extends TestCase
         $response->assertSee('FAQPage', false);
         $response->assertSee('geo.region', false);
     }
+
+    /**
+     * Test Open Graph and Twitter card metadata on homepage.
+     */
+    public function test_homepage_has_complete_open_graph_and_twitter_card_metadata(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+        $response->assertSee('<meta property="og:site_name" content="Kost Putri Ibu Idah">', false);
+        $response->assertSee('<meta property="og:locale" content="id_ID">', false);
+        $response->assertSee('<meta property="og:type" content="website">', false);
+        $response->assertSee('<meta property="og:title" content="Kost Putri Ibu Idah">', false);
+        $response->assertSee('<meta property="og:url" content="https://kosanputri.kall.my.id/">', false);
+        $response->assertSee('https://kosanputri.kall.my.id/images/og/og-default.png', false);
+        $response->assertSee('<meta property="og:image:width" content="1200">', false);
+        $response->assertSee('<meta property="og:image:height" content="630">', false);
+        $response->assertSee('<meta name="twitter:card" content="summary_large_image">', false);
+        $response->assertSee('<meta name="twitter:title" content="Kost Putri Ibu Idah">', false);
+    }
+
+    /**
+     * Test Room Detail page has dynamic Open Graph metadata based on database room.
+     */
+    public function test_room_detail_page_has_dynamic_open_graph_metadata(): void
+    {
+        $room = \App\Models\Room::first();
+        if ($room) {
+            $response = $this->get('/kamar/' . $room->slug);
+
+            $response->assertStatus(200);
+            $response->assertSee('<meta property="og:title" content="Kamar ' . $room->name . ' | Kost Putri Ibu Idah">', false);
+            $response->assertSee('https://kosanputri.kall.my.id/kamar/' . $room->slug, false);
+            $response->assertSee('<meta name="twitter:card" content="summary_large_image">', false);
+        }
+    }
+
+    /**
+     * Test inner pages have distinct and localized Open Graph metadata.
+     */
+    public function test_inner_pages_have_distinct_open_graph_metadata(): void
+    {
+        // 1. Kamar listing
+        $resKamar = $this->get('/kamar');
+        $resKamar->assertStatus(200);
+        $resKamar->assertSee('<meta property="og:title" content="Pilihan Tipe Kamar | Kost Putri Ibu Idah">', false);
+
+        // 2. Fasilitas
+        $resFasilitas = $this->get('/fasilitas');
+        $resFasilitas->assertStatus(200);
+        $resFasilitas->assertSee('<meta property="og:title" content="Fasilitas Kost Putri Ibu Idah">', false);
+
+        // 3. Galeri
+        $resGaleri = $this->get('/galeri');
+        $resGaleri->assertStatus(200);
+        $resGaleri->assertSee('<meta property="og:title" content="Galeri Kost Putri Ibu Idah">', false);
+
+        // 4. Lokasi
+        $resLokasi = $this->get('/lokasi');
+        $resLokasi->assertStatus(200);
+        $resLokasi->assertSee('<meta property="og:title" content="Lokasi Kost Putri Ibu Idah">', false);
+
+        // 5. FAQ
+        $resFaq = $this->get('/faq');
+        $resFaq->assertStatus(200);
+        $resFaq->assertSee('<meta property="og:title" content="FAQ | Kost Putri Ibu Idah">', false);
+    }
 }

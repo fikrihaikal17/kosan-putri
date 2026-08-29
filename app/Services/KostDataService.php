@@ -31,6 +31,9 @@ class KostDataService
                     'gate_closing_time' => $setting->gate_closing_time,
                     'seo_title' => $setting->seo_title,
                     'seo_description' => $setting->seo_description,
+                    'og_title' => $setting->resolved_og_title,
+                    'og_description' => $setting->resolved_og_description,
+                    'og_image_url' => $setting->resolved_og_image_url,
                 ];
             }
         } catch (\Throwable) {

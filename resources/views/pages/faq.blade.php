@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Tanya Jawab (FAQ) | Kost Putri Ibu Idah Ciamis')
-@section('meta_description', 'Jawaban lengkap dan terverifikasi seputar Kost Putri Ibu Idah Ciamis: aturan khusus putri, kapasitas kamar, listrik & air gratis, Wi-Fi, dan jam kunci gerbang.')
+@section('title', 'FAQ | Kost Putri Ibu Idah')
+@section('meta_description', 'Temukan jawaban atas pertanyaan umum mengenai kamar, fasilitas, aturan, dan informasi Kost Putri Ibu Idah.')
 @section('meta_keywords', 'faq kost putri ciamis, aturan kos putri ibu idah, tanya jawab sewa kos ciamis, info kost ciamis')
+@section('og_image', 'https://kosanputri.kall.my.id/images/og/og-default.png')
+@section('canonical_url', 'https://kosanputri.kall.my.id/faq')
 
 @push('schema')
 <script type="application/ld+json">

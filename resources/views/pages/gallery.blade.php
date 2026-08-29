@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Galeri Foto Properti | Kost Putri Ibu Idah Ciamis')
-@section('meta_description', 'Galeri foto terverifikasi Kost Putri Ibu Idah Ciamis: foto kamar tidur, kamar mandi bersih, dapur sharing, area jemur, dan garasi motor.')
+@section('title', 'Galeri Kost Putri Ibu Idah')
+@section('meta_description', 'Lihat suasana kamar dan fasilitas Kost Putri Ibu Idah.')
 @section('meta_keywords', 'foto kost putri ciamis, galeri kost ibu idah, foto kamar kos ciamis, gambar kost khusus putri')
+@section('og_image', 'https://kosanputri.kall.my.id/images/gallery/eksterior.svg')
+@section('canonical_url', 'https://kosanputri.kall.my.id/galeri')
 
 @push('schema')
 <script type="application/ld+json">

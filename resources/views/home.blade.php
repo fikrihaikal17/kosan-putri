@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Kost Putri Ibu Idah Ciamis | Kos Khusus Putri Nyaman & Praktis')
-@section('meta_description', 'Kost Putri Ibu Idah adalah kos khusus mahasiswi dan karyawati di Ciamis (Dewasari, Cijeungjing). Fasilitas lengkap: kasur, Wi-Fi gratis, listrik & air termasuk sewa, pilihan kamar mandi dalam/luar, dapur, dan garasi motor aman.')
+@section('title', 'Kost Putri Ibu Idah')
+@section('meta_description', 'Kos khusus putri dengan kamar nyaman, Wi-Fi, listrik dan air termasuk, serta fasilitas bersama.')
 @section('meta_keywords', 'kost putri ciamis, kosan putri ibu idah, kos putri ciamis, kost mahasiswi ciamis, sewa kos putri ciamis, kos putri dewasari cijeungjing, kost kamar mandi dalam ciamis')
+@section('og_image', 'https://kosanputri.kall.my.id/images/og/og-default.png')
+@section('canonical_url', 'https://kosanputri.kall.my.id/')
 
 @push('schema')
 <script type="application/ld+json">

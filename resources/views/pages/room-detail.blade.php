@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
-@section('title', $room->name . ' | Kost Putri Ibu Idah Ciamis')
-@section('meta_description', 'Detail spesifikasi ' . $room->name . ' Kost Putri Ibu Idah Ciamis. ' . $room->description . ' Fasilitas kasur, Wi-Fi gratis, listrik dan air termasuk sewa.')
+@section('title', 'Kamar ' . $room->name . ' | Kost Putri Ibu Idah')
+@section('meta_description', 'Pilihan kamar ' . $room->name . ' untuk maksimal 2 orang dengan fasilitas kasur, Wi-Fi, listrik dan air sudah termasuk.')
 @section('meta_keywords', 'sewa ' . strtolower($room->name) . ' ciamis, kost putri ciamis, kamar kos mahasiswi ciamis, kosan putri ciamis')
 @section('og_image', $room->primary_image_url ?? 'https://kosanputri.kall.my.id/images/rooms/kamar-mandi-dalam.svg')
+@section('canonical_url', 'https://kosanputri.kall.my.id/kamar/' . $room->slug)
 
 @push('schema')
 <script type="application/ld+json">

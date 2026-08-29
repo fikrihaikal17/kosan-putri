@@ -307,7 +307,7 @@
                         KP
                     </div>
                     <div>
-                        <h4 class="font-black text-sm text-white uppercase tracking-wide leading-tight" style="color: #ffffff !important; font-weight: 900 !important;">Tanya Kost Ibu Idah</h4>
+                        <p class="font-black text-sm text-white uppercase tracking-wide leading-tight" style="color: #ffffff !important; font-weight: 900 !important;">Tanya Kost Ibu Idah</p>
                         <p class="text-[11px] text-brutal-yellow font-extrabold" style="color: #FFE600 !important; font-weight: 800 !important;">Pusat Informasi & Tanya Jawab Cepat</p>
                     </div>
                 </div>
@@ -388,7 +388,7 @@
                 </div>
             </div>
             <div class="mt-3.5 p-3.5 bg-white border-2 border-brutal-black neo-shadow-xs text-center text-brutal-black w-full">
-                <h4 id="lightbox-title" class="font-black text-sm sm:text-base uppercase tracking-tight"></h4>
+                <p id="lightbox-title" class="font-black text-sm sm:text-base uppercase tracking-tight"></p>
                 <p id="lightbox-caption" class="text-xs font-semibold text-brutal-darkgray mt-1 leading-relaxed"></p>
             </div>
         </div>

@@ -169,7 +169,7 @@
                     <i data-lucide="users" class="w-5 h-5 text-brutal-black"></i>
                 </div>
                 <div>
-                    <h4 class="font-black text-brutal-black text-sm uppercase">Khusus Putri</h4>
+                    <h3 class="font-black text-brutal-black text-sm uppercase">Khusus Putri</h3>
                     <p class="text-xs font-semibold text-brutal-darkgray mt-1">Mahasiswi & karyawati.</p>
                 </div>
             </div>
@@ -179,7 +179,7 @@
                     <i data-lucide="zap" class="w-5 h-5 text-brutal-black"></i>
                 </div>
                 <div>
-                    <h4 class="font-black text-brutal-black text-sm uppercase">Listrik & Air Free</h4>
+                    <h3 class="font-black text-brutal-black text-sm uppercase">Listrik & Air Free</h3>
                     <p class="text-xs font-semibold text-brutal-darkgray mt-1">Sudah masuk biaya sewa.</p>
                 </div>
             </div>
@@ -189,7 +189,7 @@
                     <i data-lucide="wifi" class="w-5 h-5 text-brutal-black"></i>
                 </div>
                 <div>
-                    <h4 class="font-black text-brutal-black text-sm uppercase">Wi-Fi & Kasur</h4>
+                    <h3 class="font-black text-brutal-black text-sm uppercase">Wi-Fi & Kasur</h3>
                     <p class="text-xs font-semibold text-brutal-darkgray mt-1">Fasilitas pokok siap pakai.</p>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                     <i data-lucide="shield-check" class="w-5 h-5 text-brutal-black"></i>
                 </div>
                 <div>
-                    <h4 class="font-black text-brutal-black text-sm uppercase">Aman & Tertib</h4>
+                    <h3 class="font-black text-brutal-black text-sm uppercase">Aman & Tertib</h3>
                     <p class="text-xs font-semibold text-brutal-darkgray mt-1">Gerbang kunci maks. {{ $contact['gate_closing_time'] ?? '22.00 WIB' }}.</p>
                 </div>
             </div>

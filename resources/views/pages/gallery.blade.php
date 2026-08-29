@@ -75,7 +75,7 @@
 
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] font-black text-brutal-pink uppercase block">{{ $item->category }}</span>
+                            <span class="text-[10px] font-black text-neutral-700 uppercase block tracking-wider">{{ $item->category }}</span>
                             <h3 class="font-extrabold text-sm text-brutal-black uppercase">{{ $item->title }}</h3>
                         </div>
                         <span class="text-xs font-black text-brutal-black group-hover:underline flex items-center gap-1">

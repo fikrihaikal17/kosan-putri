@@ -106,7 +106,7 @@
                     <!-- Main Framed Card -->
                     <div class="bg-white border-3 border-brutal-black neo-shadow-lg p-4 sm:p-5">
                         <div class="relative aspect-4/3 overflow-hidden bg-brutal-cream border-2 border-brutal-black mb-4">
-                            <img src="{{ asset('images/rooms/kamar-mandi-dalam.svg') }}" alt="Tampilan Kamar Kost Putri Ibu Idah" class="w-full h-full object-cover">
+                            <img src="{{ asset('images/rooms/kamar-mandi-dalam.svg') }}" alt="Tampilan Kamar Kost Putri Ibu Idah" width="600" height="450" fetchpriority="high" class="w-full h-full object-cover">
                             
                             <!-- Badges Overlay -->
                             <div class="absolute top-3 left-3">
@@ -124,7 +124,7 @@
                         <!-- Card Caption Info -->
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
-                                <h3 class="font-black text-lg text-brutal-black uppercase">Tipe KM Dalam</h3>
+                                <h2 class="font-black text-lg text-brutal-black uppercase">Tipe KM Dalam</h2>
                                 <span class="text-xs font-black bg-brutal-yellow px-2 py-0.5 border-2 border-brutal-black uppercase">Siap Huni</span>
                             </div>
                             <p class="text-xs font-semibold text-brutal-darkgray leading-relaxed">
@@ -132,7 +132,7 @@
                             </p>
                             <div class="pt-2 border-t-2 border-brutal-black flex items-center justify-between font-extrabold text-xs">
                                 <span>Tersedia 2 Tipe Kamar</span>
-                                <a href="#kamar" class="text-brutal-pink hover:text-brutal-black underline uppercase flex items-center gap-1">
+                                <a href="#kamar" class="text-brutal-black hover:text-brutal-pink underline font-black uppercase flex items-center gap-1">
                                     <span>Lihat Semua</span>
                                     <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                                 </a>
@@ -489,7 +489,7 @@
 
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] font-black text-brutal-pink uppercase block">{{ $item->category }}</span>
+                            <span class="text-[10px] font-black text-neutral-700 uppercase block tracking-wider">{{ $item->category }}</span>
                             <h3 class="font-extrabold text-sm text-brutal-black uppercase">{{ $item->title }}</h3>
                         </div>
                         <span class="text-xs font-black text-brutal-black group-hover:underline flex items-center gap-1">

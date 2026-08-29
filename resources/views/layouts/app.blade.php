@@ -30,10 +30,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Kost Ibu Idah">
 
-    <!-- Fonts: Plus Jakarta Sans for Bold Neo-Brutalist Typography -->
+    <!-- Fonts: Plus Jakarta Sans with non-blocking async load & display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- Styles and Scripts via Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -237,7 +241,7 @@
 
                 <!-- Navigation Links -->
                 <div class="md:col-span-3 space-y-3">
-                    <h4 class="text-sm font-black text-white uppercase tracking-wider border-b-2 border-brutal-pink pb-1 inline-block">Halaman Website</h4>
+                    <p class="text-sm font-black text-white uppercase tracking-wider border-b-2 border-brutal-pink pb-1 inline-block" role="heading" aria-level="2">Halaman Website</p>
                     <ul class="space-y-2 text-sm text-neutral-300 font-bold">
                         <li><a href="{{ route('home') }}" class="hover:text-brutal-pink transition-colors">Beranda</a></li>
                         <li><a href="{{ route('rooms.index') }}" class="hover:text-brutal-pink transition-colors">Pilihan Kamar</a></li>
@@ -250,7 +254,7 @@
 
                 <!-- Contact & Location Info -->
                 <div class="md:col-span-4 space-y-3">
-                    <h4 class="text-sm font-black text-white uppercase tracking-wider border-b-2 border-brutal-yellow pb-1 inline-block">Kontak & Lokasi</h4>
+                    <p class="text-sm font-black text-white uppercase tracking-wider border-b-2 border-brutal-yellow pb-1 inline-block" role="heading" aria-level="2">Kontak & Lokasi</p>
                     <div class="space-y-3 text-sm text-neutral-300 font-medium">
                         <div class="grid grid-cols-[90px_1fr] gap-2.5 items-start">
                             <span class="text-brutal-pink font-extrabold uppercase">WhatsApp:</span>

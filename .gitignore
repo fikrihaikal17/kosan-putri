@@ -1,0 +1,71 @@
+# Laravel Core & Environment
+.env
+.env.backup
+.env.production
+.env.local
+.env.*.local
+
+# Composer & Dependencies
+/vendor
+/node_modules
+/npm-debug.log*
+/yarn-error.log*
+/pnpm-debug.log*
+
+# Public Assets & Build Artifacts
+/public/build
+/public/hot
+/public/storage
+/public/fonts-manifest.dev.json
+
+# Storage & Temporary Files
+/storage/*.key
+/storage/app/public/*
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/storage/logs/*.log
+/storage/pail
+
+# Testing & Code Quality
+.phpunit.result.cache
+.phpunit.cache
+.pest
+.coverage
+*.coverage
+
+# IDE & Editor Configs
+.idea
+.vscode
+.zed
+.cursor
+.nova
+.codex
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.phpactor.json
+_ide_helper.php
+_ide_helper_*.php
+_ide_helper_models.php
+.php-cs-fixer.cache
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Database & Backups
+*.sqlite
+*.sqlite-journal
+*.sql
+*.tar.gz
+*.zip

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" fill="none">
+  <!-- Warm emblem -->
+  <rect x="8" y="10" width="60" height="60" rx="16" fill="#7A8664" />
+  <!-- House and feminine floral motif -->
+  <path d="M38 24L22 37H28V52H48V37H54L38 24Z" fill="#F7F3EA" />
+  <circle cx="38" cy="42" r="3.5" fill="#7A8664" />
+  
+  <!-- Text Brand -->
+  <text x="82" y="38" font-family="'Lora', serif, Georgia" font-size="22" font-weight="700" fill="#30352D" letter-spacing="-0.5">Kost Putri</text>
+  <text x="82" y="58" font-family="'Lora', serif, Georgia" font-size="17" font-weight="600" fill="#7A8664" letter-spacing="0.2">Ibu Idah</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg-in" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8DCCB" />
+      <stop offset="100%" stop-color="#D8C4A8" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg-in)" />
+  
+  <!-- Architectural line elements representing room interior -->
+  <path d="M100 450 L700 450 M100 150 L700 150 M100 150 L100 450 M700 150 L700 450 M450 150 L450 450" stroke="#7A8664" stroke-width="2" opacity="0.3" stroke-dasharray="6,6" />
+  
+  <!-- Bed illustration -->
+  <rect x="180" y="320" width="240" height="120" rx="12" fill="#F7F3EA" stroke="#7A8664" stroke-width="3" />
+  <rect x="200" y="335" width="80" height="45" rx="8" fill="#D1DAC1" stroke="#7A8664" stroke-width="2" />
+  <rect x="200" y="390" width="200" height="40" rx="6" fill="#E7EBDE" />
+  
+  <!-- Private Bathroom door & icon -->
+  <rect x="490" y="220" width="140" height="220" rx="8" fill="#F7F3EA" stroke="#7A8664" stroke-width="3" />
+  <circle cx="510" cy="330" r="5" fill="#7A8664" />
+  <rect x="525" y="245" width="70" height="40" rx="4" fill="#E7EBDE" />
+  <text x="560" y="268" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="bold" fill="#7A8664" text-anchor="middle">KM Dalam</text>
+
+  <!-- Centered Label Overlay -->
+  <rect x="200" y="490" width="400" height="56" rx="28" fill="#30352D" opacity="0.9" />
+  <text x="400" y="525" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="600" fill="#F7F3EA" text-anchor="middle">Foto Kamar dengan Kamar Mandi Dalam</text>
+</svg>

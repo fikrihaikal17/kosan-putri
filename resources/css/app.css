@@ -1,0 +1,191 @@
+@import 'tailwindcss';
+@plugin 'daisyui';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.js';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Refined Neo-Brutalist Color Palette */
+    --color-brutal-black: #111111;
+    --color-brutal-white: #ffffff;
+    --color-brutal-warm: #fffdf7;
+    --color-brutal-pink: #ff8fab;
+    --color-brutal-pink-light: #ffe5ec;
+    --color-brutal-yellow: #ffe66d;
+    --color-brutal-yellow-light: #fff9db;
+    --color-brutal-green: #b8d97a;
+    --color-brutal-green-light: #edf7dc;
+    --color-brutal-blue: #9ad8ff;
+    --color-brutal-blue-light: #e4f4ff;
+    --color-brutal-cream: #f6f3ea;
+    --color-brutal-gray: #e5e5e5;
+    --color-brutal-darkgray: #333333;
+}
+
+/* Base Setup */
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-brutal-warm);
+    color: var(--color-brutal-black);
+}
+
+body {
+    background-color: var(--color-brutal-warm);
+    color: var(--color-brutal-black);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-brutal-black);
+}
+
+/* Neo-Brutalist Shadow Tokens */
+.neo-shadow-xs {
+    box-shadow: 2px 2px 0 #111111;
+}
+
+.neo-shadow-sm {
+    box-shadow: 3px 3px 0 #111111;
+}
+
+.neo-shadow {
+    box-shadow: 5px 5px 0 #111111;
+}
+
+.neo-shadow-md {
+    box-shadow: 6px 6px 0 #111111;
+}
+
+.neo-shadow-lg {
+    box-shadow: 8px 8px 0 #111111;
+}
+
+.neo-shadow-xl {
+    box-shadow: 12px 12px 0 #111111;
+}
+
+/* Neo-Brutalist Tactile Interactive Buttons */
+.neo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 0.875rem;
+    border: 2px solid #111111;
+    border-radius: 6px;
+    padding: 0.65rem 1.25rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #111111;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    text-decoration: none;
+    line-height: 1.25;
+}
+
+.neo-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #111111;
+}
+
+.neo-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 #111111;
+}
+
+.neo-btn-primary {
+    background-color: var(--color-brutal-pink);
+    color: #111111;
+}
+
+.neo-btn-primary:hover {
+    background-color: #ff7599;
+}
+
+.neo-btn-secondary {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+.neo-btn-secondary:hover {
+    background-color: #f7f7f7;
+}
+
+.neo-btn-yellow {
+    background-color: var(--color-brutal-yellow);
+    color: #111111;
+}
+
+.neo-btn-yellow:hover {
+    background-color: #ffd83b;
+}
+
+.neo-btn-green {
+    background-color: var(--color-brutal-green);
+    color: #111111;
+}
+
+.neo-btn-dark {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.neo-btn-dark:hover {
+    background-color: #222222;
+}
+
+/* Neo-Brutalist Cards */
+.neo-card {
+    background-color: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 8px;
+    box-shadow: 6px 6px 0 #111111;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.neo-card-interactive:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 #111111;
+}
+
+/* Neo-Brutalist Badges & Pills */
+.neo-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.65rem;
+    border: 2px solid #111111;
+    border-radius: 4px;
+    box-shadow: 2px 2px 0 #111111;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Accordion Marker Override */
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Custom Scrollbar for Chat */
+.chat-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-left: 2px solid #111111;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+    background: #ff8fab;
+    border: 2px solid #111111;
+}

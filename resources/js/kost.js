@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryLightbox();
     initFaqAccordion();
     initTanyaKostAi();
+    initLazyMaps();
 });
 
 /* --------------------------------------------------------------------------
@@ -454,3 +455,32 @@ function initTanyaKostAi() {
         return div.innerHTML;
     }
 }
+
+/* --------------------------------------------------------------------------
+ * 7. Lazy Load Maps on Scroll
+ * -------------------------------------------------------------------------- */
+function initLazyMaps() {
+    const lazyIframes = document.querySelectorAll('iframe.lazy-map');
+    if (!lazyIframes.length) return;
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const iframe = entry.target;
+                    if (iframe.dataset.src) {
+                        iframe.src = iframe.dataset.src;
+                    }
+                    obs.unobserve(iframe);
+                }
+            });
+        }, { rootMargin: '300px' });
+
+        lazyIframes.forEach(iframe => observer.observe(iframe));
+    } else {
+        lazyIframes.forEach(iframe => {
+            if (iframe.dataset.src) iframe.src = iframe.dataset.src;
+        });
+    }
+}
+

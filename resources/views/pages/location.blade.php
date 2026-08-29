@@ -181,8 +181,9 @@
                     <div class="relative w-full aspect-4/3 sm:aspect-16/10 bg-brutal-warm border-3 border-brutal-black overflow-hidden neo-shadow group" id="map-container">
                         @if(!empty($contact['maps_embed_url']))
                             <iframe 
-                                src="{{ $contact['maps_embed_url'] }}"
-                                class="w-full h-full border-0"
+                                data-src="{{ $contact['maps_embed_url'] }}"
+                                src="about:blank"
+                                class="lazy-map w-full h-full border-0"
                                 allowfullscreen="" 
                                 loading="lazy" 
                                 referrerpolicy="no-referrer-when-downgrade"

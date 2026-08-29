@@ -6,6 +6,10 @@
 @section('og_image', 'https://kosanputri.kall.my.id/images/og/og-default.png')
 @section('canonical_url', 'https://kosanputri.kall.my.id/')
 
+@push('head')
+<link rel="preload" as="image" href="{{ asset('images/rooms/kamar-mandi-dalam.svg') }}" type="image/svg+xml" fetchpriority="high">
+@endpush
+
 @push('schema')
 <script type="application/ld+json">
 {!! json_encode([

@@ -32,6 +32,8 @@
     <meta name="apple-mobile-web-app-title" content="Kost Ibu Idah">
 
     <!-- Fonts: Plus Jakarta Sans with non-blocking async load & display=swap -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap">
@@ -39,6 +41,7 @@
     <noscript>
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
     </noscript>
+    @stack('head')
 
     <!-- Styles and Scripts via Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
